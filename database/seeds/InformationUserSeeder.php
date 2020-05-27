@@ -12,7 +12,7 @@ class InformationUserSeeder extends Seeder
     public function run()
     {
         DB::table('information_user')->insert(
-            ['Id' => 1, 'c_name' => 'Lê xuân hai@1', 'c_sdt' => 1294310000, 'c_adress' => 'Hà đông', 'c_email' => 'lehai@mail.com', 'c_img' => '1534215560coverb_800x450.jpg']
+            ['Id' => 1, 'c_name' => 'Lê xuân hai@1', 'c_sdt' => 1294310000, 'c_adress' => 'Hà đông', 'c_email' => 'lehai@mail.com']
         );
     }
 }

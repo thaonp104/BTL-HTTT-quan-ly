@@ -20,7 +20,6 @@ class CreateInformationUserTable extends Migration
             $table->integer('c_sdt');
             $table->string('c_adress');
             $table->string('c_email');
-            $table->string('c_img');
         });
     }
 
