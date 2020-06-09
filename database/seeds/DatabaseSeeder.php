@@ -11,20 +11,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         $this->call(AdvSeeder::class);
-         $this->call(CategoryNewSeeder::class);
-         $this->call(CategoryProductSeeder::class);
-         $this->call(ContactSeeder::class);
-         $this->call(CustomerSeeder::class);
-         $this->call(CustomerAccountSeeder::class);
-         $this->call(CustomerOrderSeeder::class);
-         $this->call(GroupProductSeeder::class);
-         $this->call(InformationUserSeeder::class);
-         $this->call(NewsSeeder::class);
-         $this->call(OrderDetailSeeder::class);
-         $this->call(OrderProductSeeder::class);
+         $this->call(BrandSeeder::class);
+         $this->call(CategorySeeder::class);
+         $this->call(BrandCategorySeeder::class);
+         $this->call(VendorSeeder::class);
          $this->call(ProductSeeder::class);
-         $this->call(SlideSeeder::class);
-         $this->call(UserSeeder::class);
+         $this->call(BranchSeeder::class);
+         $this->call(ProductBranchSeeder::class);
+         $this->call(AccountSeeder::class);
+         $this->call(EmployeeSeeder::class);
+         $this->call(CustomerSeeder::class);
+         $this->call(OrderSeeder::class);
+         $this->call(BillSeeder::class);
+         $this->call(ItemSeeder::class);
     }
 }
