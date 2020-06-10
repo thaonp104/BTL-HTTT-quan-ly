@@ -78,4 +78,118 @@ Route::prefix('customer')->group(function (){
         ->name('customer.deleteFavorite');
 });
 
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
 
+Route::prefix('seller')->group(function (){
+    Route::get('/manageproduct', function () {
+        return view('seller.ManageProduct');
+    })->name('seller.ManageProduct');
+
+    Route::get('/managebill', function () {
+        return view('seller.ManageBill');
+    })->name('seller.ManageBill');
+    
+    Route::get('/manageproduct/detail/{id}', function () {
+        return view('seller.DetailProduct');
+    })->name('seller.DetailProduct');
+    
+    Route::get('/managebill/detail/{id}', function () {
+        return view('seller.DetailBill');
+    })->name('seller.DetailBill');
+
+    Route::get('/managebill/addbill', function () {
+        return view('seller.AddBill');
+    })->name('seller.AddBill');
+});
+
+Route::prefix('storemanager')->group(function (){
+    Route::get('/manageproduct', function () {
+        return view('storemanager.ManageProduct');
+    })->name('storemanager.ManageProduct');
+
+    Route::get('/managebill', function () {
+        return view('storemanager.ManageBill');
+    })->name('storemanager.ManageBill');
+    
+    Route::get('/manageproduct/detail/{id}', function () {
+        return view('storemanager.DetailProduct');
+    })->name('storemanager.DetailProduct');
+    
+    Route::get('/managebill/detail/{id}', function () {
+        return view('storemanager.DetailBill');
+    })->name('storemanager.DetailBill');
+
+    Route::get('/manageseller', function () {
+        return view('storemanager.ManageSeller');
+    })->name('storemanager.ManageSeller');
+
+    Route::get('/manageseller/detail/{id}', function () {
+        return view('storemanager.DetailSeller');
+    })->name('storemanager.DetailSeller');
+
+    Route::get('/managereportstore', function () {
+        return view('storemanager.ManageReportStore');
+    })->name('storemanager.ManageReportStore');
+});
+
+Route::prefix('seniormanager')->group(function (){
+    Route::get('/manageproduct', function () {
+        return view('seniormanager.ManageProduct');
+    })->name('seniormanager.ManageProduct');
+
+    Route::get('/manageproduct/detail/{id}', function () {
+        return view('seniormanager.DetailProduct');
+    })->name('seniormanager.DetailProduct');
+    
+    Route::get('/manageproduct/addproduct', function () {
+        return view('seniormanager.AddProduct');
+    })->name('seniormanager.AddProduct');
+
+    Route::get('/managestore', function () {
+        return view('seniormanager.ManageStore');
+    })->name('seniormanager.ManageStore');
+
+    Route::get('/managestore/detail/{id}', function () {
+        return view('seniormanager.DetailStore');
+    })->name('seniormanager.DetailStore');
+
+    Route::get('/managestore/addstore', function () {
+        return view('seniormanager.AddStore');
+    })->name('seniormanager.AddStore');
+
+    Route::get('/managereport', function () {
+        return view('seniormanager.ManageReport');
+    })->name('seniormanager.ManageReport');
+});
+
+Route::prefix('admin')->group(function (){
+    Route::get('/manageaccount', function () {
+        return view('admin.ManageAccount');
+    })->name('admin.ManageAccount');
+
+    Route::get('/manageaccount/detail/{id}', function () {
+        return view('admin.DetailAccount');
+    })->name('admin.DetailAccount');
+    
+    // Route::get('/manageproduct/addproduct', function () {
+    //     return view('seniormanager.AddProduct');
+    // })->name('seniormanager.AddProduct');
+
+    // Route::get('/managestore', function () {
+    //     return view('seniormanager.ManageStore');
+    // })->name('seniormanager.ManageStore');
+
+    // Route::get('/managestore/detail/{id}', function () {
+    //     return view('seniormanager.DetailStore');
+    // })->name('seniormanager.DetailStore');
+
+    // Route::get('/managestore/addstore', function () {
+    //     return view('seniormanager.AddStore');
+    // })->name('seniormanager.AddStore');
+
+    // Route::get('/managereport', function () {
+    //     return view('seniormanager.ManageReport');
+    // })->name('seniormanager.ManageReport');
+});
