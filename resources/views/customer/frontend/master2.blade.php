@@ -13,7 +13,6 @@
             <!-- list-left -->
             <div id="cphMain_ct100_LeftPane" class="left">
                 @include('customer.frontend.view_list_left')
-                @include('customer.frontend.view_filter')
             </div>
               <!--  -->
             <div id="cphMain_ct100_ContentrightPane" class="center_right">

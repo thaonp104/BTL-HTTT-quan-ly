@@ -6,22 +6,24 @@
       <ul>
         <?php
           use Illuminate\Support\Facades\DB;
-          $arr = DB::table('group_product')->get();
+          $arr = DB::table('categories')->get();
           foreach ($arr as $rows) {
          ?>
         <li class="leve10 content-first">
-            <a href="{{URL::asset('customer/groupProducts/'.$rows->group_product_id)}}">
-                <span style="font-weight:bold;"><?php echo $rows->c_name; ?></span>
+            <a href="{{URL::asset('customer/groupProducts/'.$rows->id)}}">
+                <span style="font-weight:bold;"><?php echo $rows->name; ?></span>
             </a>
           <ul style="display:block">
             <?php
-              $list_left = DB::table('category_product')->where('group_product_id', $rows->group_product_id)->get();
+              $brand_category = DB::table('brand_category')->select('brandsid')
+                  ->where('categoriesid', $rows->id);
+              $list_left = DB::table('brands')->whereIn('id', $brand_category)->get();
              ?>
              <?php foreach ($list_left as $rows) {
               ?>
               <li class="leve11 first">
-                  <a href="{{ URL::asset('customer/products/category/'.$rows->category_product_id) }}">
-                      <span><?php echo $rows->c_name ?></span>
+                  <a href="{{ URL::asset('customer/products/category/'.$rows->id) }}">
+                      <span><?php echo $rows->name ?></span>
                   </a>
                 <ul style="display:block;">
                 </ul>

@@ -47,16 +47,15 @@
               <ul class="lever10">
               <?php
               use Illuminate\Support\Facades\DB;
-              $arr=DB::table('group_product')->get();
+              $arr=DB::table('categories')->get();
               foreach ($arr as $rows) {
                ?>
-                <li class="last10"><a href="{{URL::asset('customer/groupProducts/'.$rows->group_product_id)}}"><span><?php echo $rows->c_name ?></span></a>
+                <li class="last10"><a href="{{URL::asset('customer/groupProducts/'.$rows->id)}}"><span><?php echo $rows->name ?></span></a>
                 </li>
             <?php } ?>
               </ul>
               <!--  -->
             </li>
-            <li id="item_menu4"><a href="{{ URL::asset(route('customer.news')) }}" title="Tin tức"><span>tin tức</span></a></li>
             <li id="item_menu5"><a href="{{ URL::asset(route('customer.map')) }}" title="Bản đồ"><span>Bản đồ</span></a></li>
             <li id="item_menu6"><a href="{{ URL::asset(route('customer.contact')) }}" title="Liên hệ"><span>Liên hệ</span></a></li>
           </ul>

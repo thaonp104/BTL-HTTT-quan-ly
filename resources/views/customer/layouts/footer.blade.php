@@ -4,17 +4,17 @@
         <div id="footer_wrapper">
           <?php
             use Illuminate\Support\Facades\DB;
-            $arr=DB::table('group_product')->get();
+            $arr=DB::table('categories')->get();
             foreach ($arr as $rows) {
            ?>
           <div id="thong_tin" class="bottom_box">
             <ul>
-              <li> <a class="tieu_de" href="{{URL::asset('customer/groupProducts/'.$rows->group_product_id)}}"><?php echo $rows->c_name ?></a> </li>
+              <li> <a class="tieu_de" href="{{URL::asset('customer/groupProducts/'.$rows->id)}}"><?php echo $rows->name ?></a> </li>
               <?php
-                $check = DB::table('category_product')->where('group_product_id', $rows->group_product_id)->get();
+                $check = DB::table('brands')->where('id', $rows->id)->get();
                 foreach ($check as $rows) {
               ?>
-              <li> <a href="{{ URL::asset('customer/products/category/'.$rows->category_product_id) }}"><?php echo $rows->c_name ?></a> </li>
+              <li> <a href="{{ URL::asset('customer/products/category/'.$rows->id) }}"><?php echo $rows->name ?></a> </li>
             <?php } ?>
             </ul>
           </div>

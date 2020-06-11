@@ -66,21 +66,20 @@
                   @include('customer.frontend.view_vaio')
               <div id="HomeFeaturedProducts" class="Block FeaturedProducts DefaultModule CustomProduct-1511547">
               @include('customer.frontend.view_pk')
-              <div id="TextHTML-Module" class="DefaultModule"> <img src="{{ URL::asset('news/lumia.jpg') }}"/> </div>
-                  @include('customer.frontend.view_hot_news')
+              <div id="TextHTML-Module" class="DefaultModule"> <img src="{{ URL::asset('images/lumia.jpg') }}"/> </div>
             </div>
             <div id="cphMain_ctl00_RightPane" class="mid_right">
-                <a href="{{ URL::asset('customer/news/category/2') }}">
+                <a href="https://vnexpress.net/the-gioi">
                   <div id="TextHTML-Module" class="DefaultModule">
                       <div class="defaultTitle TextHTML-Title"> <span>Tin thế giới</span> </div>
-                    <p style=" height:186px;"> <img style="margin-bottom:12px;" src="{{ URL::asset('news/qc.jpg') }}" height="174" width="687"/> </p>
+                    <p style=" height:186px;"> <img style="margin-bottom:12px;" src="{{ URL::asset('images/qc.jpg') }}" height="174" width="687"/> </p>
                   </div>
                 </a>
-              <a href="{{ URL::asset('customer/news/category/1') }}">
+              <a href="https://www.thegioididong.com/tin-tuc">
                   <div id="TextHTML-Module" class="DefaultModule">
                       <div class="defaultTitle TextHTML-Title"> <span>Tin công nghệ</span> </div>
                       <div class="defaultContent TextHTML-content">
-                          <p style="height:175px;"> <img src="{{ URL::asset('news/tincn.jpg') }}" height="175" width="455"/> </p>
+                          <p style="height:175px;"> <img src="{{ URL::asset('images/tincn.jpg') }}" height="175" width="455"/> </p>
                       </div>
                       <div class="clear defaultFooter TextHTML-footer">
                           <div></div>
@@ -92,11 +91,7 @@
                   @include('customer.frontend.view_right_product')
                 <div class="Clear"></div>
               </div>
-                @include('customer.frontend.view_adv')
             </div>
-          </div>
-          <div id="cphMain_ct100_BottomPane" class="bottom">
-              @include('customer.frontend.view_category_news')
           </div>
         </div>
       </div>

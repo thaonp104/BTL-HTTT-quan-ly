@@ -17,17 +17,23 @@ class UserController extends Controller
 
     public function loginCustomer(Request $request)
     {
-        $c_email=$request["c_email"];
-        $c_password=$request["c_password"];
-        $check = DB::table('customer_accounts')->where('c_email', $c_email)->first();
-        if(isset($check->c_email)){
-            if($check->c_password==md5($c_password)){
-                session(['c_customer' => $c_email]);
-                return redirect('customer/myAccount');
-            }
-            else{
+        $username=$request["username"];
+        $password=$request["password"];
+        $check = DB::table('accounts')->where('username', $username)->first();
+        if(isset($check->username)){
+            $customer = DB::table('customers')->where('accountsid', $check->id)->first();
+            if ($customer!=null) {
+                if($check->password==md5($password)){
+                    session(['c_customer' => $username]);
+                    return redirect('customer/myAccount');
+                }
+                else{
+                    return redirect('customer/login/fail');
+                }
+            } else {
                 return redirect('customer/login/fail');
             }
+
         }
         else{
             return redirect('customer/login/fail');
@@ -47,21 +53,22 @@ class UserController extends Controller
         $address = $request['address'];
         $birthday = $request['birthday'];
         $phone = $request['phone'];
-        $email = $request['email'];
+        $username = $request['username'];
         if($password==$passwordnew){
-            $check = DB::table('customer_accounts')->where('c_email', $email)->count();
+            $check = DB::table('accounts')->where('username', $username)->count();
             if($check==0){
-                $c_password=md5($password);
+                $password=md5($password);
+                DB::table('accounts')->insert([
+                    ['username' => $username, 'password' => $password, 'status' => 1]
+                ]);
+                $arr = DB::table('accounts')->where('username', $username)->first();
                 DB::table('customers')->insert([
-                    ['c_name' => $name, 'c_birthday' => $birthday, 'c_adress' => $address, 'c_phone' => $phone]
+                    ['fullname' => $name, 'birthday' => $birthday, 'address' => $address, 'phone' => $phone, 'accountsid' => $arr->id]
                 ]);
-                $arr = DB::table('customers')->where('c_name', $name)
-                    ->where('c_phone', $phone)->first();
-                DB::table('customer_accounts')->insert([
-                    ['c_email' => $email, 'c_password' => $c_password, 'customer_id' => $arr->customer_id]
-                ]);
+
                 echo "Đăng kí thành công. Vui lòng đăng nhập";
-                return view("customer/frontend/view_customer_login");
+                $data['alert'] = 'success';
+                return view("customer/frontend/view_customer_login", $data);
             }
             else{
                 return redirect("customer/register/email");
@@ -93,8 +100,8 @@ class UserController extends Controller
     {
         if(session()->has('c_customer')){
             $tam=session("c_customer");
-            $arr = DB::table('customer_accounts')->where('c_email', $tam)->first();
-            $inf = DB::table('customers')->where('customer_id',$arr->customer_id)->first();
+            $arr = DB::table('accounts')->where('username', $tam)->first();
+            $inf = DB::table('customers')->where('accountsid',$arr->id)->first();
             $data['arr'] = $arr;
             $data['inf'] = $inf;
             return view('customer.frontend.view_info_account', $data);
@@ -109,8 +116,8 @@ class UserController extends Controller
     {
         if(session()->has('c_customer')){
             $tam=session("c_customer");
-            $inf = DB::table('customer_accounts')->where('c_email', $tam)->first();
-            $arr = DB::table('customers')->where('customer_id', $inf->customer_id)->first();
+            $inf = DB::table('accounts')->where('username', $tam)->first();
+            $arr = DB::table('customers')->where('accountsid', $inf->id)->first();
             $data['inf'] = $inf;
             $data['arr'] = $arr;
             return view("customer.frontend.view_edit_account", $data);
@@ -124,19 +131,19 @@ class UserController extends Controller
     {
         if($request->session()->has('c_customer')){
             $tam=session("c_customer");
-            $inf = DB::table('customer_accounts')->where('c_email', $tam)->first();
-            $arr = DB::table('customers')->where('customer_id', $inf->customer_id)->first();
+            $inf = DB::table('accounts')->where('username', $tam)->first();
+            $arr = DB::table('customers')->where('accountsid', $inf->id)->first();
             $c_name=$request["c_name"];
             $c_birthday=$request["c_birthday"];
             $c_adress=$request["c_adress"];
             $c_phone=$request["c_phone"];
             $affected = DB::table('customers')
-                ->where('customer_id', $arr->customer_id)
+                ->where('accountsid', $inf->id)
                 ->update([
-                    'c_name' => $c_name,
-                    'c_adress' => $c_adress,
-                    'c_birthday' => $c_birthday,
-                    'c_phone' => $c_phone
+                    'fullname' => $c_name,
+                    'address' => $c_adress,
+                    'birthday' => $c_birthday,
+                    'phone' => $c_phone
                 ]);
             return redirect('customer/inforAccount');
         }
@@ -161,20 +168,20 @@ class UserController extends Controller
     {
         if($request->session()->has('c_customer')){
             $tam=session("c_customer");
-            $inf = DB::table('customer_accounts')->where('c_email', $tam)->first();
+            $inf = DB::table('accounts')->where('username', $tam)->first();
             $pw = $request['pw'];
             $newpw = $request['newpw'];
             $renewpw = $request['renewpw'];
-             if (md5($pw) != $inf->c_password) {
+             if (md5($pw) != $inf->password) {
                 return redirect('customer/editPassword/error');
             } else {
                  if ($newpw != $renewpw) {
                      return redirect('customer/editPassword/error');
                  } else{
-                     DB::table('customer_accounts')
-                         ->where('customer_id', $inf->customer_account_id)
+                     DB::table('accounts')
+                         ->where('id', $inf->id)
                          ->update([
-                             'c_password' => md5($newpw)
+                             'password' => md5($newpw)
                          ]);
                  }
              }

@@ -14,27 +14,27 @@
     <div>
         <div class="row">
             <div class="col-md-4">Mã đơn hàng</div>
-            <div class="col-md-8"><?php echo $tam->order_id ?></div>
+            <div class="col-md-8"><?php echo $tam->id ?></div>
         </div>
         <div class="row">
             <div class="col-md-4">Họ và tên</div>
-            <div class="col-md-8"><?php echo $check->c_name ?></div>
+            <div class="col-md-8"><?php echo $check->fullname ?></div>
         </div>
         <div class="row">
             <div class="col-md-4">Số điện thoại</div>
-            <div class="col-md-8"><?php echo $check->c_phone ?></div>
+            <div class="col-md-8"><?php echo $check->phone ?></div>
         </div>
         <div class="row">
             <div class="col-md-4">Địa chỉ</div>
-            <div class="col-md-8"><?php echo $check->c_adress ?></div>
+            <div class="col-md-8"><?php echo $check->address ?></div>
         </div>
         <div class="row">
             <div class="col-md-4">Tổng tiền phải trả</div>
-            <div class="col-md-8"><?php echo number_format($tam->money) ?> VNĐ</div>
+            <div class="col-md-8"><?php echo number_format($tam->total) ?> VNĐ</div>
         </div>
         <div class="row">
             <div class="col-md-4">Thời gian đặt hàng</div>
-            <div class="col-md-8"><?php echo $tam->c_date ?></div>
+            <div class="col-md-8"><?php echo $tam->date ?></div>
         </div>
         <div class="row">
             <div class="col-md-4">Trạng thái đơn hàng</div>
@@ -56,14 +56,14 @@
                 </tr>
                 <?php foreach ($arr as $rows){ ?>
                 <tr>
-                    <td style="width: 120px;text-align: center"><?php echo $rows->product_id ?></td>
-                    <td style="width: 350px"><a href="{{ URL::asset('customer/product/detail/'.$rows->product_id) }}"><?php
-                            $arr = DB::table('product')->where('product_id',$rows->product_id)->first();
-                            echo $arr->c_name;?></a></td>
+                    <td style="width: 120px;text-align: center"><?php echo $rows->product_branchid ?></td>
+                    <td style="width: 350px"><a href="{{ URL::asset('customer/product/detail/'.$rows->product_branchid) }}"><?php
+                            $arr = DB::table('products')->where('id',$rows->product_branchid)->first();
+                            echo $arr->name;?></a></td>
                     <td style="width: 150px"><?php
-                        $arr = DB::table('product')->where('product_id',$rows->product_id)->first();
-                        echo number_format($arr->c_pricenew) ?> VNĐ</td>
-                    <td style="width: 120px"><?php echo $rows->number ?></td>
+                        $arr = DB::table('products')->where('id',$rows->id)->first();
+                        echo number_format($arr->pricenew) ?> VNĐ</td>
+                    <td style="width: 120px"><?php echo $rows->quantity ?></td>
 
                 </tr>
                 <?php }?>
@@ -71,7 +71,7 @@
     </div>
         <br>
         @if ($tam->status != 3)
-            <a href="{{ URL::asset('customer/order/destroy/'.$tam->order_id) }}" class="btn btn-danger">Huỷ đơn hàng</a>
+            <a href="{{ URL::asset('customer/order/destroy/'.$tam->id) }}" class="btn btn-danger">Huỷ đơn hàng</a>
         @endif
 </div>
 @endsection

@@ -13,23 +13,23 @@
 
 				<div class="row">
 					<div class="col-md-3">Tài khoản: </div>
-					<div class="col-md-9"><?php echo $arr->c_email; ?></div>
+					<div class="col-md-9"><?php echo $arr->username; ?></div>
 				</div><div class="row">
 					<div class="col-md-3">Họ tên: </div>
-					<div class="col-md-9"><?php echo $inf->c_name; ?></div>
+					<div class="col-md-9"><?php echo $inf->fullname; ?></div>
 				</div>
 				<div class="row">
 					<div class="col-md-3">Ngày sinh: </div>
-					<div class="col-md-9"><?php echo $inf->c_birthday;
+					<div class="col-md-9"><?php echo $inf->birthday;
 							 ?></div>
 				</div>
 				<div class="row">
 					<div class="col-md-3">Địa chỉ: </div>
-					<div class="col-md-9"><?php echo $inf->c_adress; ?></div>
+					<div class="col-md-9"><?php echo $inf->address; ?></div>
 				</div>
 				<div class="row">
 					<div class="col-md-3">Số điện thoại(+84): </div>
-					<div class="col-md-9"><?php echo $inf->c_phone; ?></div>
+					<div class="col-md-9"><?php echo $inf->phone; ?></div>
 				</div>
 				<div class="row">
 					<div class="col-md-3"></div>

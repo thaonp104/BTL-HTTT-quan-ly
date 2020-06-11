@@ -23,6 +23,7 @@ class CreateProductsTable extends Migration
             $table->integer('quantity');
             $table->foreignId('brandsid')->constrained('brands');
             $table->foreignId('vendorsid')->constrained('vendors');
+            $table->foreignId('categoriesid')->constrained('categories');
         });
     }
 

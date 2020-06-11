@@ -20,6 +20,7 @@ class CreateOrdersTable extends Migration
             $table->integer('total');
             $table->integer('status');
             $table->foreignId('customersid')->constrained('customers');
+            $table->foreignId('branchesid')->nullable()->constrained('branches');
         });
     }
 

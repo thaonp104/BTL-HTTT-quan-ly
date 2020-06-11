@@ -28,9 +28,9 @@
                  ?>
                   <tr>
 
-                    <td><a href="{{ URL::asset('customer/product/detail/'.$product['product_id']) }}"><?php echo $product['c_name'] ?></a></td>
+                    <td><a href="{{ URL::asset('customer/product/detail/'.$product['id']) }}"><?php echo $product['name'] ?></a></td>
                     <td><?php echo $product['number'];?></td>
-                    <td><?php echo number_format($product['c_price']); ?>VNĐ</td>
+                    <td><?php echo number_format($product['price']); ?>VNĐ</td>
 
                   </tr>
                 <?php } ?>
@@ -47,17 +47,17 @@
                 <div>
                     <div class="row">
                         <div class="col-md-2">Họ và tên</div>
-                        <div class="col-md-3"><?php echo $check->c_name ?></div>
+                        <div class="col-md-3"><?php echo $check->fullname ?></div>
                     </div>
                 <!-- -------------- -->
                 <div class="row">
                         <div class="col-md-2">Địa chỉ</div>
-                        <div class="col-md-3"><?php echo $check->c_adress ?></div>
+                        <div class="col-md-3"><?php echo $check->address ?></div>
                     </div>
                 <!-- -------------- -->
                  <div class="row">
                         <div class="col-md-2">Số điện thoại</div>
-                        <div class="col-md-3"><?php echo $check->c_phone ?></div>
+                        <div class="col-md-3"><?php echo $check->phone ?></div>
                     </div>
                 <!-- -------------- -->
 

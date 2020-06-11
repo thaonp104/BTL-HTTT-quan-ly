@@ -25,11 +25,11 @@
 
                  ?>
                   <tr>
-                    <td><img style="width: 100px;" src="{{ URL::asset('backend/images/'.$product['c_img']) }}" /></td>
-                    <td><a href="{{ URL::asset('customer/product/detail/'.$product['product_id']) }}"><?php echo $product['c_name'] ?></a></td>
-                    <td><input class="form-control" type="number" name="product_<?php echo $product['product_id']; ?>" value="<?php echo $product['number'];?>" /></td>
-                    <td class="text-right"><?php echo number_format($product['c_price']*$product['number']); ?>VNĐ</td>
-                    <td class="text-right"><a href="index.php?controller=cart&act=delete&id=<?php echo $product['product_id']?>"><i class="fa fa-trash"></a></td>
+                    <td><img style="width: 100px;" src="{{ URL::asset('images/'.$product['img']) }}" /></td>
+                    <td><a href="{{ URL::asset('customer/product/detail/'.$product['id']) }}"><?php echo $product['name'] ?></a></td>
+                    <td><input class="form-control" type="number" name="product_<?php echo $product['id']; ?>" value="<?php echo $product['number'];?>" /></td>
+                    <td class="text-right"><?php echo number_format($product['price']*$product['number']); ?>VNĐ</td>
+                    <td class="text-right"><a href="index.php?controller=cart&act=delete&id=<?php echo $product['id']?>"><i class="fa fa-trash"></a></td>
                   </tr>
                 <?php } ?>
 

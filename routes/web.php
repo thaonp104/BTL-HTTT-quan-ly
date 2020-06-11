@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', 'TestController@index');
+Route::get('/', 'Customer\UserController@login');
 
 //Customer
 Route::prefix('customer')->group(function (){
@@ -57,10 +57,6 @@ Route::prefix('customer')->group(function (){
     Route::get('products/category/{category}', 'Customer\ProductController@showCategoryProducts')
         ->name('customer.productsCategory');
     Route::get('product/detail/{id}','Customer\ProductController@showDetail')->name('customer.detailProduct');
-
-    //News
-    Route::get('news/detail/{id}','Customer\NewsController@detail')->name('customer.detailNews');
-    Route::get('news/category/{id}','Customer\NewsController@category')->name('customer.categoryNews');
 
     //Orders
     Route::get('myOrders','Customer\OrderController@myOrders')->name('customer.myOrders');

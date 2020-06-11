@@ -32,10 +32,10 @@
                 <div class="clear">
                     <div class="key">
                         <span class="required">*</span>
-                        Email
+                        Username
                     </div>
                     <div class="value">
-                        <input id="txtContactAddress" class="NormalTextBox" type="email" maxlength="250" name="email" required>
+                        <input id="txtContactAddress" class="NormalTextBox" type="username" maxlength="250" name="username" required>
                         <span id="cphMain_ctl00_ctl00_rfvContactAddress" style="display:none;">(*)</span>
                     </div>
                 </div>

@@ -22,13 +22,13 @@
 						<div class="form-group">
 							<div class="row">
 								<div class="col-md-3">Tài khoản </div>
-								<div class="col-md-9"><input class="form-control"  type="text" name="c_email"></div>
+								<div class="col-md-9"><input class="form-control"  type="text" name="username"></div>
 							</div>
 						</div>
 						<div class="form-group">
 							<div class="row">
 								<div class="col-md-3">Mật khẩu </div>
-								<div class="col-md-9"><input class="form-control" type="password" name="c_password"></div>
+								<div class="col-md-9"><input class="form-control" type="password" name="password"></div>
 							</div>
 						</div>
 						<div class="form-group">

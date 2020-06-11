@@ -16,28 +16,28 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-4">Họ và tên:</div>
-                            <div class="col-md-8"><input required type="text" class="form-control" name="c_name" value="<?php echo isset($arr->c_name)?$arr->c_name:""?>"></div>
+                            <div class="col-md-8"><input required type="text" class="form-control" name="c_name" value="<?php echo isset($arr->fullname)?$arr->fullname:""?>"></div>
                         </div>
                     </div>
                     <!--  -->
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-4">Ngày sinh:</div>
-                            <div class="col-md-8"><input required type="date" class="form-control" name="c_birthday" value="<?php echo isset($arr->c_birthday)?$arr->c_birthday:""?>"></div>
+                            <div class="col-md-8"><input required type="date" class="form-control" name="c_birthday" value="<?php echo isset($arr->birthday)?$arr->birthday:""?>"></div>
                         </div>
                     </div>
                     <!--  -->
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-4">Địa chỉ:</div>
-                            <div class="col-md-8"><input required type="text" class="form-control" name="c_adress" value="<?php echo isset($arr->c_adress)?$arr->c_adress:""?>"></div>
+                            <div class="col-md-8"><input required type="text" class="form-control" name="c_adress" value="<?php echo isset($arr->address)?$arr->address:""?>"></div>
                         </div>
                     </div>
                     <!--  -->
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-4">Số điện thoại (+84):</div>
-                            <div class="col-md-8"><input required type="number" class="form-control" name="c_phone" value="<?php echo isset($arr->c_phone)?$arr->c_phone:""?>"></div>
+                            <div class="col-md-8"><input required type="number" class="form-control" name="c_phone" value="<?php echo isset($arr->phone)?$arr->phone:""?>"></div>
                         </div>
                     </div>
                     <!--  -->

@@ -24,27 +24,26 @@ class CartController extends Controller
             $number ++;
             session(['cart.'.$id.'.number' => $number]);
         } else {
-            $product = DB::table('product')->where('product_id',$id)->first();
+            $product = DB::table('products')->where('id',$id)->first();
             session(['cart.'.$id => array(
-                'product_id' => $id,
-                'c_name' => $product->c_name,
-                'c_img' => $product->c_img,
+                'id' => $id,
+                'name' => $product->name,
+                'img' => $product->img,
                 'number' => 1,
-                'c_price' => $product->c_pricenew
+                'price' => $product->pricenew,
             )]);
         }
         session(['total' => $this->total()]);
-//        var_dump(session("cart"));
         return redirect('customer/cart');
     }
 
     public function update(Request $request)
     {
         foreach (session("cart") as $product) {
-            $str="product_".$product["product_id"];
+            $str="product_".$product["id"];
             $number= $request[$str];
             //cập nhật
-            $this->item_update($product["product_id"],$number);
+            $this->item_update($product["id"],$number);
             session(["total" => $this->total()]);
         }
         return redirect('customer/cart');
@@ -60,7 +59,7 @@ class CartController extends Controller
     public function total(){
         $total = 0;
         foreach(session('cart') as $product){
-            $total += $product['c_price'] * $product['number'];
+            $total += $product['price'] * $product['number'];
         }
         return $total;
     }

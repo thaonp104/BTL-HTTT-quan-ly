@@ -16,8 +16,10 @@ class ProductController extends Controller
 
     public function showGroupProducts(Request $request){
         $id=isset($request['id'])?$request['id']:"";
-        $arr=DB::table('group_product')->where('group_product_id',$id)->first();
-        $check=DB::table('category_product')->where('group_product_id',$id)->get();
+        $arr=DB::table('categories')->where('id',$id)->first();
+        $brand_category = DB::table('brand_category')->select('brandsid')
+            ->where('categoriesid', $id);
+        $check = DB::table('brands')->whereIn('id', $brand_category)->get();
         $data['arr'] = $arr;
         $data['check'] = $check;
         return view('customer.frontend.view_group_product',$data);
@@ -27,14 +29,14 @@ class ProductController extends Controller
     {
         $key=isset($request["key"])?$request["key"]:"jdskdjsd";
         $record_perpage=4;
-        $total = DB::table('product')->where('c_name','like', '%'.$key.'%')
-            ->orWhere('c_content','like','%'.$key.'%')->count();
+        $total = DB::table('products')->where('name','like', '%'.$key.'%')
+            ->orWhere('content','like','%'.$key.'%')->count();
         $num_page=ceil($total/$record_perpage);
         $page=isset($request["p"])&&$request["p"]>0?($request["p"]-1):0;
         $from=$page*$record_perpage;
-        $arr = DB::table('product')->where('c_name','like', '%'.$key.'%')
-            ->orWhere('c_content','like','%'.$key.'%')
-            ->orderBy('product_id','desc')
+        $arr = DB::table('products')->where('name','like', '%'.$key.'%')
+            ->orWhere('content','like','%'.$key.'%')
+            ->orderBy('id','desc')
             ->paginate(8);
         $data['arr'] = $arr;
         $data['key'] = $request['key'];
@@ -46,14 +48,14 @@ class ProductController extends Controller
     {
         $id=isset($request["category"])?$request["category"]:"";
         $record_perpage=4;
-        $total= DB::table('product')->where('category_product_id', $id)->count();
+        $total= DB::table('products')->where('brandsid', $id)->count();
         $num_page=ceil($total/$record_perpage);
         $page=isset($request["p"])&&$request["p"]>0?($request["p"]-1):0;
         $from=$page*$record_perpage;
-        $arr=DB::table('product')->where('category_product_id',$id)
-            ->orderBy('product_id','desc')
+        $arr=DB::table('products')->where('brandsid',$id)
+            ->orderBy('id','desc')
             ->paginate(4);
-        $ht = DB::table('category_product')->where('category_product_id',$id)->first();
+        $ht = DB::table('brands')->where('id',$id)->first();
         $data['arr']=$arr;
         $data['ht']=$ht;
         $data['num_page'] = $num_page;
@@ -64,8 +66,10 @@ class ProductController extends Controller
     public function showDetail(Request $request)
     {
         $id=isset($request["id"])?$request["id"]:"";
-        $arr = DB::table('product')->where('product_id',$id)->first();
+        $arr = DB::table('products')->where('id',$id)->first();
         $data['arr'] = $arr;
+        $productBranch = DB::table('product_branch')->where('productsid', $id)->get();
+        $data['productBranch'] = $productBranch;
         return view('customer/frontend/view_product',$data);
     }
 
@@ -73,13 +77,13 @@ class ProductController extends Controller
     {
         $id=isset($request["id"])?$request["id"]:"";
         if(!session()->has('favorite')) session(['favorite' => array()]);
-        $product = DB::table('product')->where('product_id', $id)->first();
+        $product = DB::table('products')->where('id', $id)->first();
         session(['favorite.'.$id => array(
-            'product_id' => $id,
-            'c_name' => $product->c_name,
-            'c_img' => $product->c_img,
+            'id' => $id,
+            'name' => $product->name,
+            'img' => $product->img,
             'number' => 1,
-            'c_price' => $product->c_pricenew
+            'price' => $product->pricenew
         )]);
         return view("customer.frontend.view_favorite_product");
     }

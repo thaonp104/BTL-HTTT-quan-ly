@@ -16,15 +16,15 @@
                             foreach (session("favorite") as $favorite) {
                        ?>
                     <li class="Odd">
-                      <div id="ProductImage" class="ProductImage ProductImageTooltip po_1510729"> <a href="{{ URL::asset('customer/product/detail/'.$favorite['product_id']) }}"><img style="width: 120px;" alt="Lenovo Miix 8" src="{{ URL::asset('backend/images/'.$favorite['c_img']) }}"/></a> </div>
+                      <div id="ProductImage" class="ProductImage ProductImageTooltip po_1510729"> <a href="{{ URL::asset('customer/product/detail/'.$favorite['id']) }}"><img style="width: 120px;" alt="Lenovo Miix 8" src="{{ URL::asset('images/'.$favorite['img']) }}"/></a> </div>
                       <!--<span class="FeturedFlag"></span>-->
                       <!--<div class="saleFlag iconSprite disable"></div>-->
-                      <div class="ProductDetails"> <strong> <a href="{{ URL::asset('customer/product/detail/'.$favorite['product_id']) }}"><?php echo $favorite['c_name'] ?></a> </strong> </div>
+                      <div class="ProductDetails"> <strong> <a href="{{ URL::asset('customer/product/detail/'.$favorite['id']) }}"><?php echo $favorite['name'] ?></a> </strong> </div>
                       <div class="ProductPrice">
-                        <div class="special_price"> <span class="price"> <em><?php echo number_format($favorite['c_price']) ?> ₫</em> </span> </div>
+                        <div class="special_price"> <span class="price"> <em><?php echo number_format($favorite['price']) ?> ₫</em> </span> </div>
                       </div>
                       <!--<div class="ProductRating Rating5" style="display:none"></div>-->
-                      <div > <a href="{{ URL::asset('customer/deleteFavorite/'.$favorite['product_id']) }}"><span>Xóa khỏi danh sách</span></a> </div>
+                      <div > <a href="{{ URL::asset('customer/deleteFavorite/'.$favorite['id']) }}"><span>Xóa khỏi danh sách</span></a> </div>
                     </li>
                     <!-- end sản phẩm -->
                   <?php } ?>
