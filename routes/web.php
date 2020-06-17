@@ -168,24 +168,14 @@ Route::prefix('admin')->group(function (){
     Route::get('/manageaccount/detail/{id}', function () {
         return view('admin.DetailAccount');
     })->name('admin.DetailAccount');
+});
+
+Route::prefix('onlinehandlingemployee')->group(function (){
+    Route::get('/managebill', function () {
+        return view('onlinehandlingemployee.ManageBill');
+    })->name('onlinehandlingemployee.ManageBill');
     
-    // Route::get('/manageproduct/addproduct', function () {
-    //     return view('seniormanager.AddProduct');
-    // })->name('seniormanager.AddProduct');
-
-    // Route::get('/managestore', function () {
-    //     return view('seniormanager.ManageStore');
-    // })->name('seniormanager.ManageStore');
-
-    // Route::get('/managestore/detail/{id}', function () {
-    //     return view('seniormanager.DetailStore');
-    // })->name('seniormanager.DetailStore');
-
-    // Route::get('/managestore/addstore', function () {
-    //     return view('seniormanager.AddStore');
-    // })->name('seniormanager.AddStore');
-
-    // Route::get('/managereport', function () {
-    //     return view('seniormanager.ManageReport');
-    // })->name('seniormanager.ManageReport');
+    Route::get('/managebill/detail/{id}', function () {
+        return view('onlinehandlingemployee.DetailBill');
+    })->name('onlinehandlingemployee.DetailBill');
 });
