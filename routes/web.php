@@ -80,102 +80,138 @@ Route::get('/login', function () {
 
 Route::prefix('seller')->group(function (){
     Route::get('/manageproduct', function () {
-        return view('seller.ManageProduct');
+        return view('employee.seller.ManageProduct');
     })->name('seller.ManageProduct');
 
     Route::get('/managebill', function () {
-        return view('seller.ManageBill');
+        return view('employee.seller.ManageBill');
     })->name('seller.ManageBill');
-    
+
     Route::get('/manageproduct/detail/{id}', function () {
-        return view('seller.DetailProduct');
+        return view('employee.seller.DetailProduct');
     })->name('seller.DetailProduct');
-    
+
     Route::get('/managebill/detail/{id}', function () {
-        return view('seller.DetailBill');
+        return view('employee.seller.DetailBill');
     })->name('seller.DetailBill');
 
     Route::get('/managebill/addbill', function () {
-        return view('seller.AddBill');
+        return view('employee.seller.AddBill');
+    })->name('seller.AddBill');
+
+    Route::get('/managebill/updatebill/{id}', function () {
+        return view('employee.seller.updateBill');
     })->name('seller.AddBill');
 });
 
 Route::prefix('storemanager')->group(function (){
     Route::get('/manageproduct', function () {
-        return view('storemanager.ManageProduct');
+        return view('employee.storemanager.ManageProduct');
     })->name('storemanager.ManageProduct');
 
     Route::get('/managebill', function () {
-        return view('storemanager.ManageBill');
+        return view('employee.storemanager.ManageBill');
     })->name('storemanager.ManageBill');
-    
+
     Route::get('/manageproduct/detail/{id}', function () {
-        return view('storemanager.DetailProduct');
+        return view('employee.storemanager.DetailProduct');
     })->name('storemanager.DetailProduct');
-    
+
     Route::get('/managebill/detail/{id}', function () {
-        return view('storemanager.DetailBill');
+        return view('employee.storemanager.DetailBill');
     })->name('storemanager.DetailBill');
 
     Route::get('/manageseller', function () {
-        return view('storemanager.ManageSeller');
+        return view('employee.storemanager.ManageSeller');
     })->name('storemanager.ManageSeller');
 
+    Route::get('/manageseller/addseller', function () {
+        return view('employee.storemanager.addSeller');
+    })->name('storemanager.addSeller');
+
     Route::get('/manageseller/detail/{id}', function () {
-        return view('storemanager.DetailSeller');
+        return view('employee.storemanager.DetailSeller');
     })->name('storemanager.DetailSeller');
 
+    Route::get('/manageseller/update/{id}', function () {
+        return view('employee.storemanager.updateSeller');
+    })->name('storemanager.updateSeller');
+
     Route::get('/managereportstore', function () {
-        return view('storemanager.ManageReportStore');
+        return view('employee.storemanager.ManageReportStore');
     })->name('storemanager.ManageReportStore');
 });
 
 Route::prefix('seniormanager')->group(function (){
     Route::get('/manageproduct', function () {
-        return view('seniormanager.ManageProduct');
+        return view('employee.seniormanager.ManageProduct');
     })->name('seniormanager.ManageProduct');
 
     Route::get('/manageproduct/detail/{id}', function () {
-        return view('seniormanager.DetailProduct');
+        return view('employee.seniormanager.DetailProduct');
     })->name('seniormanager.DetailProduct');
-    
+
+    Route::get('/manageproduct/update/{id}', function () {
+        return view('employee.seniormanager.updateProduct');
+    })->name('seniormanager.updateProduct');
+
     Route::get('/manageproduct/addproduct', function () {
-        return view('seniormanager.AddProduct');
+        return view('employee.seniormanager.AddProduct');
     })->name('seniormanager.AddProduct');
 
     Route::get('/managestore', function () {
-        return view('seniormanager.ManageStore');
+        return view('employee.seniormanager.ManageStore');
     })->name('seniormanager.ManageStore');
 
     Route::get('/managestore/detail/{id}', function () {
-        return view('seniormanager.DetailStore');
+        return view('employee.seniormanager.DetailStore');
     })->name('seniormanager.DetailStore');
 
+    Route::get('/managestore/update/{id}', function () {
+        return view('employee.seniormanager.updateStore');
+    })->name('seniormanager.updateStore');
+
     Route::get('/managestore/addstore', function () {
-        return view('seniormanager.AddStore');
+        return view('employee.seniormanager.AddStore');
     })->name('seniormanager.AddStore');
 
     Route::get('/managereport', function () {
-        return view('seniormanager.ManageReport');
+        return view('employee.seniormanager.ManageReport');
     })->name('seniormanager.ManageReport');
 });
 
 Route::prefix('admin')->group(function (){
     Route::get('/manageaccount', function () {
-        return view('admin.ManageAccount');
+        return view('employee.admin.ManageAccount');
     })->name('admin.ManageAccount');
 
     Route::get('/manageaccount/detail/{id}', function () {
-        return view('admin.DetailAccount');
+        return view('employee.admin.DetailAccount');
     })->name('admin.DetailAccount');
+
+    Route::get('/manageaccount/create', function () {
+        return view('employee.admin.addAccount');
+    })->name('admin.createAccount');
+
+    Route::get('/manageaccount/edit/{id}', function () {
+        return view('employee.admin.editAccount');
+    })->name('admin.editAccount');
 });
 
-Route::prefix('onlinehandlingemployee')->group(function (){
+Route::prefix('telesale')->group(function (){
     Route::get('/managebill', function () {
-        return view('onlinehandlingemployee.ManageBill');
-    })->name('onlinehandlingemployee.ManageBill');
-    
+        return view('employee.telesale.ManageBill');
+    })->name('processer.ManageBill');
+
     Route::get('/managebill/detail/{id}', function () {
-        return view('onlinehandlingemployee.DetailBill');
-    })->name('onlinehandlingemployee.DetailBill');
+        return view('employee.telesale.DetailBill');
+    })->name('telesale.DetailBill');
+
+    Route::get('/managebill/update/{id}', function () {
+        return view('employee.telesale.updateBill');
+    })->name('telesale.updateBill');
+});
+
+Route::get('/employee/changepw', function () {
+    return view('employee.layout.changePW');
 });
