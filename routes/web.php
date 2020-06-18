@@ -74,9 +74,20 @@ Route::prefix('customer')->group(function (){
         ->name('customer.deleteFavorite');
 });
 
+
+//Employee
 Route::get('/login', function () {
     return view('login');
 })->name('login');
+
+Route::post('/login', function () {
+    return view('login');
+});
+
+Route::get('/employee/changepw', function () {
+    return view('employee.layout.changePW');
+});
+
 
 Route::prefix('seller')->group(function (){
     Route::get('/manageproduct', function () {
@@ -210,8 +221,4 @@ Route::prefix('telesale')->group(function (){
     Route::get('/managebill/update/{id}', function () {
         return view('employee.telesale.updateBill');
     })->name('telesale.updateBill');
-});
-
-Route::get('/employee/changepw', function () {
-    return view('employee.layout.changePW');
 });
