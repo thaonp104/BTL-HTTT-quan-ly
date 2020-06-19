@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'Customer\UserController@login');
+Route::get('/', 'HomeController@index');
 
 //Customer
 Route::prefix('customer')->group(function (){
@@ -76,20 +76,13 @@ Route::prefix('customer')->group(function (){
 
 
 //Employee
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
-
-Route::post('/login', function () {
-    return view('login');
-});
-
 Route::get('/employee/changepw', function () {
     return view('employee.layout.changePW');
-});
+})->middleware(['auth','checkemployee']);
 
+Route::get('/logout', 'Auth\Logincontroller@logout');
 
-Route::prefix('seller')->group(function (){
+Route::prefix('seller')->middleware('checkseller')->group(function (){
     Route::get('/manageproduct', function () {
         return view('employee.seller.ManageProduct');
     })->name('seller.ManageProduct');
@@ -115,7 +108,7 @@ Route::prefix('seller')->group(function (){
     })->name('seller.AddBill');
 });
 
-Route::prefix('storemanager')->group(function (){
+Route::prefix('storemanager')->middleware('checkstoremanager')->group(function (){
     Route::get('/manageproduct', function () {
         return view('employee.storemanager.ManageProduct');
     })->name('storemanager.ManageProduct');
@@ -153,7 +146,7 @@ Route::prefix('storemanager')->group(function (){
     })->name('storemanager.ManageReportStore');
 });
 
-Route::prefix('seniormanager')->group(function (){
+Route::prefix('seniormanager')->middleware('checkseniormanager')->group(function (){
     Route::get('/manageproduct', function () {
         return view('employee.seniormanager.ManageProduct');
     })->name('seniormanager.ManageProduct');
@@ -191,7 +184,7 @@ Route::prefix('seniormanager')->group(function (){
     })->name('seniormanager.ManageReport');
 });
 
-Route::prefix('admin')->group(function (){
+Route::prefix('admin')->middleware('checkadmin')->group(function (){
     Route::get('/manageaccount', function () {
         return view('employee.admin.ManageAccount');
     })->name('admin.ManageAccount');
@@ -209,7 +202,7 @@ Route::prefix('admin')->group(function (){
     })->name('admin.editAccount');
 });
 
-Route::prefix('telesale')->group(function (){
+Route::prefix('telesale')->middleware('checktelesale')->group(function (){
     Route::get('/managebill', function () {
         return view('employee.telesale.ManageBill');
     })->name('processer.ManageBill');
@@ -222,3 +215,9 @@ Route::prefix('telesale')->group(function (){
         return view('employee.telesale.updateBill');
     })->name('telesale.updateBill');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+

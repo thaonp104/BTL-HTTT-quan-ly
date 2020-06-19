@@ -21,7 +21,8 @@ class EmployeeSeeder extends Seeder
             ['fullname' => 'Lê Duy Bách', 'address' => 'Hà Đông ', 'phone' => '0413489966', 'birthday' => '1998-01-01', 'role' => 'seniormanager', 'salary' => 15000000, 'branchesid' => NULL, 'accountsid' =>19],
             ['fullname' => 'Lê Thị Tuyết', 'address' => 'Hoàng Xá- Hải Dương', 'phone' => '0423489966', 'birthday' => '1998-08-19', 'role' => 'seller', 'salary' => 5000000, 'branchesid' => 3, 'accountsid' =>20],
             ['fullname' => 'Lê Việt Quang Anh', 'address' => 'Cát Tiền- Gia Lộc- Hải Dương', 'phone' => '0433489966', 'birthday' => '1998-11-10', 'role' => 'seller', 'salary' => 5000000, 'branchesid' => 3, 'accountsid' =>21],
-            ['fullname' => 'Đoàn Thị Dung', 'address' => 'Hồng Đức- Ninh Giang- Hải Dương', 'phone' => '0443489966', 'birthday' => '1998-01-13', 'role' => 'storemanager', 'salary' => 10000000, 'branchesid' => 3, 'accountsid' =>22]
+            ['fullname' => 'Đoàn Thị Dung', 'address' => 'Hồng Đức- Ninh Giang- Hải Dương', 'phone' => '0443489966', 'birthday' => '1998-01-13', 'role' => 'storemanager', 'salary' => 10000000, 'branchesid' => 3, 'accountsid' =>22],
+            ['fullname' => 'Nguyễn Thị Linh', 'address' => 'Đông Phong- Yên Phong- Bắc Ninh', 'phone' => '01278515765', 'birthday' => '1992-07-07', 'role' => 'telesale', 'salary' => 10000000, 'branchesid' => 1, 'accountsid' =>23]
         ]);
     }
 }

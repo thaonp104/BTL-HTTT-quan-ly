@@ -49,14 +49,13 @@
                     </div>
 
                     <div class="dropdown-divider"></div>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <i class="mdi mdi-logout-variant"></i>
-                        <span>Logout</span>
-                    </a>
-
-                    <!-- item-->
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button class="dropdown-item notify-item" type="submit">
+                            <i class="mdi mdi-logout-variant"></i>
+                            <span>Logout</span>
+                        </button>
+                    </form>
                     <a href="/employee/changepw" class="dropdown-item notify-item">
                         <i class="mdi mdi-logout-variant"></i>
                         <span>Change password</span>

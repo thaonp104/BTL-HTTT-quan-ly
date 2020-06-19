@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -23,7 +24,7 @@ class UserController extends Controller
         if(isset($check->username)){
             $customer = DB::table('customers')->where('accountsid', $check->id)->first();
             if ($customer!=null) {
-                if($check->password==md5($password)){
+                if(Hash::check($password,$check->password)){
                     session(['c_customer' => $username]);
                     return redirect('customer/myAccount');
                 }
@@ -57,7 +58,7 @@ class UserController extends Controller
         if($password==$passwordnew){
             $check = DB::table('accounts')->where('username', $username)->count();
             if($check==0){
-                $password=md5($password);
+                $password=bcrypt($password);
                 DB::table('accounts')->insert([
                     ['username' => $username, 'password' => $password, 'status' => 1]
                 ]);
@@ -172,7 +173,8 @@ class UserController extends Controller
             $pw = $request['pw'];
             $newpw = $request['newpw'];
             $renewpw = $request['renewpw'];
-             if (md5($pw) != $inf->password) {
+
+             if (!Hash::check($pw, $inf->password)) {
                 return redirect('customer/editPassword/error');
             } else {
                  if ($newpw != $renewpw) {
@@ -181,7 +183,7 @@ class UserController extends Controller
                      DB::table('accounts')
                          ->where('id', $inf->id)
                          ->update([
-                             'password' => md5($newpw)
+                             'password' => bcrypt($newpw)
                          ]);
                  }
              }
