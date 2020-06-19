@@ -23,7 +23,7 @@ class CheckEmployee
         $type = auth()->user()->user_type;
         $id = Auth::user()->id;
         $position = Employee::where('accountsid', $id)->first();
-        if($position == null)
+        if($position != null)
             return $next($request);
         else
             return redirect('/customer');

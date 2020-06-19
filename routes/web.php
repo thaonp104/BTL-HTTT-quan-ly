@@ -76,9 +76,9 @@ Route::prefix('customer')->group(function (){
 
 
 //Employee
-Route::get('/employee/changepw', function () {
-    return view('employee.layout.changePW');
-})->middleware(['auth','checkemployee']);
+Route::get('/employee/changepw', 'Employee\AccountController@editPW')->middleware(['auth','checkemployee']);
+
+Route::post('/employee/updatePW', 'Employee\AccountController@updatePW')->middleware(['auth','checkemployee']);
 
 Route::get('/logout', 'Auth\Logincontroller@logout');
 
