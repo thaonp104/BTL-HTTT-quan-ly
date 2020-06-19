@@ -38,4 +38,14 @@ class User extends Authenticatable
     ];
 
     protected $table = "accounts";
+
+    public function customer()
+    {
+        return $this->hasOne('App\Customer','accountsid');
+    }
+
+    public function employee()
+    {
+        return $this->hasOne('App\Employee', 'accountsid');
+    }
 }

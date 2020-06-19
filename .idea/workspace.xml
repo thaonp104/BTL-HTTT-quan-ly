@@ -3,11 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="3be5c56f-0043-4e30-af25-ebf6e3ae1d87" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Employee/AccountController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Employee/AccountController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/CheckEmployee.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckEmployee.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/employee/layout/changePW.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/layout/changePW.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Account.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Account.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Bill.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Bill.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Branch.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Branch.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Brand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Brand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Customer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Employee.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Item.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Item.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Product_Branch.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Product_Branch.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Vendor.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Vendor.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +178,7 @@
       <workItem from="1591709522288" duration="5335000" />
       <workItem from="1591788530090" duration="17675000" />
       <workItem from="1591926535571" duration="38000" />
-      <workItem from="1592271798124" duration="26026000" />
+      <workItem from="1592271798124" duration="28412000" />
     </task>
     <servers />
   </component>
