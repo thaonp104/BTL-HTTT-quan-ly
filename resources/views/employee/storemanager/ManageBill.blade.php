@@ -45,28 +45,47 @@
                     <div class="card">
                         <div class="card-body table-responsive">
                             <h4 class="m-t-0 header-title mb-4"><b>Bills</b></h4>
-                            <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                            <div id="datatable_filter" class="dataTables_filter" style="float: right">
+                                <label style="display: inline">Search:
+                                    <form action="/storemanager/searchbill" method="GET">
+                                        <input name="id" type="search" class=" form-control-sm" style="    border: 1px solid #ccc; padding: 18px 10px; margin-bottom: 10px"
+                                            value="@if(isset($search)) {{ $search }} @endif" >
+                                        <button type="submit" class="btn btn-info" >Submit</button>
+                                    </form>
+                                </label>
+                            </div>
+                            <table class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Product name</th>
+                                        <th>Customer's name</th>
                                         <th>Date</th>
-                                        <th>Status</th>
                                         <th>Total</th>
-                                        <th>Address</th>
+                                        <th>Status</th>
                                         <th>Detail</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Screwdriver</td>
-                                        <td>8/6/2020</td>
-                                        <td>On going</td>
-                                        <td>$400,000</td>
-                                        <td>23 Wall Street</td>
-                                        <td style="width: 1%"><a href="/storemanager/managebill/detail/{id}" class="btn btn-primary">Detail</a></td>
-                                    </tr>
+                                    @foreach($bills as $bill)
+                                        <tr>
+                                            <td>{{$bill->id}}</td>
+                                            <td>{{ $bill->fullname }}</td>
+                                            <td>{{ $bill->date }}</td>
+                                            <td> {{ $bill->total }}</td>
+                                            <td>
+                                                @if($bill->status == 0)
+                                                    Chờ xác nhận
+                                                @elseif($bill->status == 1)
+                                                    Đang giao hàng
+                                                @elseif($bill->status == 2)
+                                                    Đã giao hàng
+                                                @elseif($bill->status == 3)
+                                                    Đã huỷ
+                                                @endif
+                                            </td>
+                                            <td style="width: 1%"><a href="/storemanager/managebill/detail/{{$bill->id}}" class="btn btn-primary">Detail</a></td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

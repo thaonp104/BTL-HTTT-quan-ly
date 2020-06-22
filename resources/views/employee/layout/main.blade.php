@@ -94,36 +94,24 @@
         <!-- LOGO -->
 
     </div>
-    <!-- end Topbar --> <!-- ========== Left Sidebar Start ========== -->
     <div class="left-side-menu">
 
         <div class="slimscroll-menu">
 
-            <!--- Sidemenu -->
             <div id="sidebar-menu">
                 @yield('menu')
             </div>
-            <!-- End Sidebar -->
 
             <div class="clearfix"></div>
 
         </div>
-        <!-- Sidebar -left -->
 
     </div>
-    <!-- Left Sidebar End -->
-
-    <!-- ============================================================== -->
-    <!-- Start Page Content here -->
-    <!-- ============================================================== -->
 
     <div class="content-page">
         @yield('content')
     </div>
 
-    <!-- ============================================================== -->
-    <!-- End Page content -->
-    <!-- ============================================================== -->
 
 </div>
 <!-- END wrapper -->

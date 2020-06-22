@@ -113,17 +113,14 @@ Route::prefix('storemanager')->middleware('checkstoremanager')->group(function (
         return view('employee.storemanager.ManageProduct');
     })->name('storemanager.ManageProduct');
 
-    Route::get('/managebill', function () {
-        return view('employee.storemanager.ManageBill');
-    })->name('storemanager.ManageBill');
+    Route::get('/managebill', 'Employee\StoreManager\BillController@index')->name('storemanager.ManageBill');
 
-    Route::get('/manageproduct/detail/{id}', function () {
-        return view('employee.storemanager.DetailProduct');
-    })->name('storemanager.DetailProduct');
+    Route::get('/searchbill', 'Employee\StoreManager\BillController@search')->name('storemanager.searchbill');
 
-    Route::get('/managebill/detail/{id}', function () {
-        return view('employee.storemanager.DetailBill');
-    })->name('storemanager.DetailBill');
+    Route::get('/manageproduct/detail/{id}', 'Employee\StoreManager\BillController@show')
+        ->name('storemanager.DetailProduct');
+
+    Route::get('/managebill/detail/{id}', 'Employee\StoreManager\BillController@show')->name('storemanager.DetailBill');
 
     Route::get('/manageseller', function () {
         return view('employee.storemanager.ManageSeller');
