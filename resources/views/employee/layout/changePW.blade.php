@@ -5,7 +5,7 @@
         <li class="menu-title">Online Handling Employee</li>
 
         <li>
-            <a href="#" class="waves-effect">
+            <a href="/employee/home" class="waves-effect">
                 <i class="ion-md-basket"></i>
                 <span>Home Page</span>
             </a>

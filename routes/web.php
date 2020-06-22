@@ -81,6 +81,7 @@ Route::get('/employee/changepw', 'Employee\AccountController@editPW')->middlewar
 Route::post('/employee/updatePW', 'Employee\AccountController@updatePW')->middleware(['auth','checkemployee']);
 
 Route::get('/logout', 'Auth\Logincontroller@logout');
+Route::get('/employee/home', 'Homecontroller@index');
 
 Route::prefix('seller')->middleware('checkseller')->group(function (){
     Route::get('/manageproduct', function () {
@@ -109,16 +110,12 @@ Route::prefix('seller')->middleware('checkseller')->group(function (){
 });
 
 Route::prefix('storemanager')->middleware('checkstoremanager')->group(function (){
-    Route::get('/manageproduct', function () {
-        return view('employee.storemanager.ManageProduct');
-    })->name('storemanager.ManageProduct');
+
+    Route::get('/manageproduct', 'Employee\StoreManager\ProductController@index')->name('storemanager.ManageProduct');
 
     Route::get('/managebill', 'Employee\StoreManager\BillController@index')->name('storemanager.ManageBill');
 
-    Route::get('/searchbill', 'Employee\StoreManager\BillController@search')->name('storemanager.searchbill');
-
-    Route::get('/manageproduct/detail/{id}', 'Employee\StoreManager\BillController@show')
-        ->name('storemanager.DetailProduct');
+    Route::get('/manageproduct/detail/{id}', 'Employee\StoreManager\ProductController@show')->name('storemanager.DetailProduct');
 
     Route::get('/managebill/detail/{id}', 'Employee\StoreManager\BillController@show')->name('storemanager.DetailBill');
 
@@ -138,9 +135,7 @@ Route::prefix('storemanager')->middleware('checkstoremanager')->group(function (
         return view('employee.storemanager.updateSeller');
     })->name('storemanager.updateSeller');
 
-    Route::get('/managereportstore', function () {
-        return view('employee.storemanager.ManageReportStore');
-    })->name('storemanager.ManageReportStore');
+    Route::get('/managereportstore', 'Employee\StoreManager\ReportController@index')->name('storemanager.ManageReportStore');
 });
 
 Route::prefix('seniormanager')->middleware('checkseniormanager')->group(function (){

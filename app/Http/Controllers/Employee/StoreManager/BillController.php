@@ -43,15 +43,15 @@ class BillController extends Controller
     }
 
     //search bill by id, name
-    public function search(Request $request)
-    {
-        $employee = User::find(auth()->user()->id)->employee;
-        $branch = $employee->branchesid;
-        $bills = Order::where('branchesid', $branch)
-            ->where('orders.id', 'like', '%'.$request['id'].'%')
-            ->leftJoin('customers', 'orders.customersid', '=', 'customers.id')->get();
-        $data['search'] = $request['id'];
-        $data['bills'] = $bills;
-        return view('employee.storemanager.ManageBill', $data);
-    }
+//    public function search(Request $request)
+//    {
+//        $employee = User::find(auth()->user()->id)->employee;
+//        $branch = $employee->branchesid;
+//        $bills = Order::where('branchesid', $branch)
+//            ->where('orders.id', 'like', '%'.$request['id'].'%')
+//            ->leftJoin('customers', 'orders.customersid', '=', 'customers.id')->get();
+//        $data['search'] = $request['id'];
+//        $data['bills'] = $bills;
+//        return view('employee.storemanager.ManageBill', $data);
+//    }
 }
