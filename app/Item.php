@@ -15,4 +15,9 @@ class Item extends Model
     {
         return $this->belongsTo('App\Order', 'ordersid');
     }
+
+    public function product()
+    {
+        return $this->belongsTo('App\Product', 'productsid');
+    }
 }

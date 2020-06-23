@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    public $timestamps = false;
+    protected $fillable = ['name', 'quantity', 'price', 'pricenew', 'img', 'brandsid', 'categoriesid', 'vendorsid', 'content'];
     public function productBranch()
     {
         return $this->hasMany('App\Product_Branch', 'productsid');
@@ -24,6 +26,11 @@ class Product extends Model
     public function brand()
     {
         return $this->belongsTo('App\Brand', 'brandsid');
+    }
+
+    public function items()
+    {
+        return $this->hasMany('App\Item', 'productsid');
     }
 
 }

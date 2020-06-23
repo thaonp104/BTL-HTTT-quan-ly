@@ -15,7 +15,7 @@ class CreateBillsTable extends Migration
     {
         Schema::create('bills', function (Blueprint $table) {
             $table->id('id');
-            $table->foreignId('employeesid')->constrained('employees');
+            $table->foreignId('employeesid')->nullable()->constrained('employees');
             $table->foreignId('ordersid')->constrained('orders');
         });
     }

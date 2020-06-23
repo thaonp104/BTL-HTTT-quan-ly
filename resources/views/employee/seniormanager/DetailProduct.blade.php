@@ -36,43 +36,44 @@
             <form>
                 <div class="form-group">
                     <label for="id">ID</label>
-                    <input type="text" class="form-control" value="1" readonly>
+                    <input type="text" class="form-control" value="{{ $product['id'] }}" disabled>
                 </div>
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control" value="name" readonly>
+                    <input type="text" class="form-control" value="{{ $product['name'] }}" disabled>
                 </div>
                 <div class="form-group">
                     <label for="price">Price</label>
-                    <input type="text" class="form-control" value="10.000.000" readonly>
+                    <input type="text" class="form-control" value="${{ $product['price'] }}" disabled>
                 </div>
                 <div class="form-group">
                     <label for="pricenew">Pricenew</label>
-                    <input type="text" class="form-control" value="20.000.000" readonly>
+                    <input type="text" class="form-control" value="${{ $product['pricenew'] }}" disabled>
                 </div>
                 <div class="form-group">
-                    <label for="image">Image</label>
-                    <input type="text" class="form-control" value="link image" readonly>
-                    <input type="file" class="form-control-file">
+                    <label for="pricenew">Category</label>
+                    <input type="text" class="form-control" value="{{ $category['name'] }}" disabled>
                 </div>
                 <div class="form-group">
                     <label for="content">Content</label>
-                    <input type="text" class="form-control" value="Content" readonly>
+                    <textarea class="form-control" rows="5" disabled>
+                        {{ $product['content'] }}
+                    </textarea>
                 </div>
                 <div class="form-group">
                     <label for="quantity">Quantity</label>
-                    <input type="text" class="form-control" value="2" readonly>
+                    <input type="text" class="form-control" value="{{ $product['quantity'] }}" disabled>
                 </div>
                 <div class="form-group">
                     <label for="brand">Brand</label>
-                    <input type="text" class="form-control" value="brand" readonly>
+                    <input type="text" class="form-control" value="{{ $brand['name'] }}" disabled>
                 </div>
                 <div class="form-group">
                     <label for="vendor">Vendor</label>
-                    <input type="text" class="form-control" value="vendor" readonly>
+                    <input type="text" class="form-control" value="{{ $vendor['name'] }}" disabled>
                 </div>
                 <div class="form-group">
-                    <a href="{{ URL::asset('/seniormanager/manageproduct/update/1') }}"><button type="button" class="btn btn-primary">Update</button></a>
+                    <a href="{{ URL::asset('/seniormanager/manageproduct/update/'.$product['id']) }}"><button type="button" class="btn btn-primary">Update</button></a>
                 </div>
             </form>
         </div>

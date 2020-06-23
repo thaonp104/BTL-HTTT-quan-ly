@@ -42,33 +42,35 @@
                             <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
 
                                 <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Price</th>
-                                        <th>Pricenew</th>
-                                        <th>Img</th>
-                                        <th>Content</th>
-                                        <th>Quantity</th>
-                                        <th>Brand</th>
-                                        <th>Vendor</th>
-                                        <th>Detail</th>
-                                    </tr>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>Pricenew</th>
+                                    <th>Quantity</th>
+                                    <th>Category</th>
+                                    <th>Detail</th>
+                                </tr>
                                 </thead>
 
                                 <tbody>
+                                @foreach($products as $product)
                                     <tr>
-                                        <td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>$320,800</td>
-                                        <td>$400,000</td>
-                                        <td>link img</td>
-                                        <td>content</td>
-                                        <td>5</td>
-                                        <td>Apple</td>
-                                        <td>Apple</td>
-                                        <td style="width: 1%"><a href="/seniormanager/manageproduct/detail/{id}" class="btn btn-primary">Detail</a></td>
+                                        <td>{{ $product->id }}</td>
+                                        <td>{{ $product->name }}</td>
+                                        <td>${{ $product->price }}</td>
+                                        <td>${{ $product->pricenew }}</td>
+                                        <td>{{ $product->quantity }}</td>
+                                        <td>
+                                            @foreach($categories as $c)
+                                                @if( $c->id == $product->categoriesid )
+                                                    {{ $c->name }}
+                                                @endif
+                                            @endforeach
+                                        </td>
+                                        <td style="width: 1%"><a href="/seniormanager/manageproduct/detail/{{ $product->id }}" class="btn btn-primary">Detail</a></td>
                                     </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                             <a href="/seniormanager/manageproduct/addproduct" class="btn btn-info">Add Product</a>

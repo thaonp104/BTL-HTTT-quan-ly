@@ -84,17 +84,13 @@ Route::get('/logout', 'Auth\Logincontroller@logout');
 Route::get('/employee/home', 'Homecontroller@index');
 
 Route::prefix('seller')->middleware('checkseller')->group(function (){
-    Route::get('/manageproduct', function () {
-        return view('employee.seller.ManageProduct');
-    })->name('seller.ManageProduct');
+    Route::get('/manageproduct', 'Employee\Seller\ProductController@index')->name('seller.ManageProduct');
 
     Route::get('/managebill', function () {
         return view('employee.seller.ManageBill');
     })->name('seller.ManageBill');
 
-    Route::get('/manageproduct/detail/{id}', function () {
-        return view('employee.seller.DetailProduct');
-    })->name('seller.DetailProduct');
+    Route::get('/manageproduct/detail/{id}', 'Employee\Seller\ProductController@show')->name('seller.DetailProduct');
 
     Route::get('/managebill/detail/{id}', function () {
         return view('employee.seller.DetailBill');
@@ -139,21 +135,17 @@ Route::prefix('storemanager')->middleware('checkstoremanager')->group(function (
 });
 
 Route::prefix('seniormanager')->middleware('checkseniormanager')->group(function (){
-    Route::get('/manageproduct', function () {
-        return view('employee.seniormanager.ManageProduct');
-    })->name('seniormanager.ManageProduct');
+    Route::get('/manageproduct', 'Employee\SeniorManager\ProductController@index')->name('seniormanager.ManageProduct');
 
-    Route::get('/manageproduct/detail/{id}', function () {
-        return view('employee.seniormanager.DetailProduct');
-    })->name('seniormanager.DetailProduct');
+    Route::get('/manageproduct/detail/{id}', 'Employee\SeniorManager\ProductController@show')->name('seniormanager.DetailProduct');
 
-    Route::get('/manageproduct/update/{id}', function () {
-        return view('employee.seniormanager.updateProduct');
-    })->name('seniormanager.updateProduct');
+    Route::get('/manageproduct/update/{id}', 'Employee\SeniorManager\ProductController@edit')->name('seniormanager.updateProduct');
 
-    Route::get('/manageproduct/addproduct', function () {
-        return view('employee.seniormanager.AddProduct');
-    })->name('seniormanager.AddProduct');
+    Route::post('/manageproduct/update', 'Employee\SeniorManager\ProductController@update');
+
+    Route::get('/manageproduct/addproduct', 'Employee\SeniorManager\ProductController@create')->name('seniormanager.AddProduct');
+
+    Route::post('/managerproduct/storeproduct', 'Employee\SeniorManager\ProductController@store');
 
     Route::get('/managestore', function () {
         return view('employee.seniormanager.ManageStore');

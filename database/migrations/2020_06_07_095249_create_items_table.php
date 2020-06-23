@@ -16,7 +16,8 @@ class CreateItemsTable extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id('id');
             $table->integer('quantity');
-            $table->foreignId('product_branchid')->constrained('product_branch');
+            $table->foreignId('product_branchid')->nullable()->constrained('product_branch');
+            $table->foreignId('productsid')->nullable()->constrained('products');
             $table->foreignId('ordersid')->constrained('orders');
         });
     }
