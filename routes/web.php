@@ -187,13 +187,9 @@ Route::prefix('admin')->middleware('checkadmin')->group(function (){
 });
 
 Route::prefix('telesale')->middleware('checktelesale')->group(function (){
-    Route::get('/managebill', function () {
-        return view('employee.telesale.ManageBill');
-    })->name('processer.ManageBill');
+    Route::get('/managebill', 'Employee\Telesale\BillController@index')->name('processer.ManageBill');
 
-    Route::get('/managebill/detail/{id}', function () {
-        return view('employee.telesale.DetailBill');
-    })->name('telesale.DetailBill');
+    Route::get('/managebill/detail/{id}', 'Employee\Telesale\BillController@show')->name('telesale.DetailBill');
 
     Route::get('/managebill/update/{id}', function () {
         return view('employee.telesale.updateBill');

@@ -7,18 +7,19 @@ use App\Employee;
 use App\Http\Controllers\Controller;
 use App\Item;
 use App\Order;
-use App\User;
+use App\Customer;
+use App\Product;
 use Illuminate\Http\Request;
 
-class BilController extends Controller
+class BillController extends Controller
 {
     //show list bills
     public function index()
     {
-        $bills = Order::where('branchesid', null)
-            ->leftJoin('customers', 'orders.customersid', '=', 'customers.id')->get();
+        $bills = Customer::rightJoin('orders', 'orders.customersid', '=', 'customers.id')
+            ->where('orders.branchesid', null)->get();
         $data['bills'] = $bills;
-        return view('employee.storemanager.ManageBill', $data);
+        return view('employee.telesale.ManageBill', $data);
     }
 
     //show detail bill by id
@@ -27,17 +28,17 @@ class BilController extends Controller
         $id = $request['id'];
         $bill = Bill::where('bills.id', $id)
             ->leftJoin('orders', 'orders.id', '=', 'bills.ordersid')
-            ->leftJoin('customers', 'customers.id', '=', 'orders.customersid')
             ->first();
+        $customer = Customer::where('id',$bill->customersid)->first();
         if($bill->employeesid!=null) $employee = Employee::where('id', $bill->employeesid)->first();
         else $employee = null;
-        $items = Item::where('ordersid', $id)
-            ->leftJoin('product_branch', 'product_branch.id', '=', 'items.product_branchid')
-            ->leftJoin('products', 'products.id', '=', 'product_branch.productsid')
+        $items = Product::leftJoin('items', 'products.id', '=', 'items.productsid')
+            ->where('items.ordersid', $id)
             ->get();
         $data['bill'] = $bill;
         $data['items'] = $items;
         $data['employee'] = $employee;
-        return view('employee.storemanager.DetailBill', $data);
+        $data['customer'] = $customer;
+        return view('employee.telesale.DetailBill', $data);
     }
 }

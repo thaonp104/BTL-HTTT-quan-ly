@@ -30,6 +30,7 @@ class ReportController extends Controller
         $bills = Order::where('branchesid', $branch)
             ->where('date', '>=' , $start)
             ->where('date', '<=', $end)
+            ->where('status', 2)
             ->join('customers', 'orders.customersid', '=', 'customers.id')->get();
         $data['bills'] = $bills;
         $total = 0;

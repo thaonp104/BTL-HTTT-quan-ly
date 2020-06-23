@@ -14,7 +14,9 @@ class BillSeeder extends Seeder
         DB::table('bills')->insert([
             ['employeesid' => 3, 'ordersid' => 1],
             ['employeesid' => 4, 'ordersid' => 2],
-            ['employeesid' => 3, 'ordersid' => 3]
+            ['employeesid' => 3, 'ordersid' => 3],
+            ['employeesid' => null, 'ordersid' => 4],
+            ['employeesid' => null, 'ordersid' => 5]
         ]);
     }
 }

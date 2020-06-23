@@ -29,22 +29,34 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>Customer's name</th>
                                     <th>Date</th>
-                                    <th>Status</th>
                                     <th>Total</th>
-                                    <th>Address</th>
+                                    <th>Status</th>
                                     <th>Detail</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>8/6/2020</td>
-                                    <td>On going</td>
-                                    <td>$400,000</td>
-                                    <td>23 Wall Street</td>
-                                    <td style="width: 1%"><a href="/telesale/managebill/detail/{id}" class="btn btn-primary">Detail</a></td>
-                                </tr>
+                                @foreach($bills as $bill)
+                                    <tr>
+                                        <td>{{$bill->id}}</td>
+                                        <td>{{ $bill->fullname }}</td>
+                                        <td>{{ $bill->date }}</td>
+                                        <td> {{ $bill->total }}</td>
+                                        <td>
+                                            @if($bill->status == 0)
+                                                Chờ xác nhận
+                                            @elseif($bill->status == 1)
+                                                Đang giao hàng
+                                            @elseif($bill->status == 2)
+                                                Đã giao hàng
+                                            @elseif($bill->status == 3)
+                                                Đã huỷ
+                                            @endif
+                                        </td>
+                                        <td style="width: 1%"><a href="/telesale/managebill/detail/{{$bill->id}}" class="btn btn-primary">Detail</a></td>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
