@@ -166,6 +166,7 @@ Route::prefix('seniormanager')->middleware('checkseniormanager')->group(function
     Route::get('/managereport', function () {
         return view('employee.seniormanager.ManageReport');
     })->name('seniormanager.ManageReport');
+    Route::get('/managereport', 'Employee\SeniorManager\ReportController@index');
 });
 
 Route::prefix('admin')->middleware('checkadmin')->group(function (){
