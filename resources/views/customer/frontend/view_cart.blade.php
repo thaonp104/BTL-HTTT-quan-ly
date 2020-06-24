@@ -27,7 +27,10 @@
                   <tr>
                     <td><img style="width: 100px;" src="{{ URL::asset('images/'.$product['img']) }}" /></td>
                     <td><a href="{{ URL::asset('customer/product/detail/'.$product['id']) }}"><?php echo $product['name'] ?></a></td>
-                    <td><input class="form-control" type="number" name="product_<?php echo $product['id']; ?>" value="<?php echo $product['number'];?>" /></td>
+                    <td>
+                        <input class="form-control" type="number" name="product_<?php echo $product['id']; ?>" min="0" max="{{ $product['quantity'] }}" required value="<?php echo $product['number'];?>" />
+                        (Còn: {{ $product['quantity'] }})
+                    </td>
                     <td class="text-right"><?php echo number_format($product['price']*$product['number']); ?>VNĐ</td>
                     <td class="text-right"><a href="index.php?controller=cart&act=delete&id=<?php echo $product['id']?>"><i class="fa fa-trash"></a></td>
                   </tr>
@@ -58,4 +61,9 @@
           </div>
         </div>
       </form>
+    @if(isset($alert))
+        <script>
+            alert('Số lượng hàng không hợp lệ hoặc quá số hàng trong kho, xin nhập lại!!!');
+        </script>
+    @endif
 @endsection

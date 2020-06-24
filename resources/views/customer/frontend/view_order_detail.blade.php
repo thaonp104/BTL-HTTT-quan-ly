@@ -56,17 +56,31 @@
                 </tr>
                 <?php foreach ($arr as $rows){ ?>
                 <tr>
-                    <td style="width: 120px;text-align: center"><?php echo $rows->product_branchid ?></td>
-                    <td style="width: 350px"><a href="{{ URL::asset('customer/product/detail/'.$rows->product_branchid) }}"><?php
-                            $arr = DB::table('products')->where('id',$rows->product_branchid)->first();
-                            echo $arr->name;?></a></td>
+                    <td style="width: 120px;text-align: center">
+                        @if(isset($rows->productsid))
+                            {{ $rows->productsid }}
+                        @else
+                            {{ $rows->product_branchid }}
+                        @endif
+
+                    </td>
+                    <td style="width: 350px"><a href="{{ URL::asset('customer/product/detail/'.$rows->product_branchid) }}">
+                            <?php
+                                if (isset($rows->productsid)) {
+                                    $arr = DB::table('products')->where('id',$rows->productsid)->first();
+                                }
+                                else {
+                                    $arr = DB::table('products')->where('id',$rows->product_branchid)->first();
+                                }
+                                echo $arr->name;?>
+                        </a></td>
                     <td style="width: 150px"><?php
                         $arr = DB::table('products')->where('id',$rows->id)->first();
                         echo number_format($arr->pricenew) ?> VNĐ</td>
                     <td style="width: 120px"><?php echo $rows->quantity ?></td>
 
                 </tr>
-                <?php }?>
+                <?php } ?>
             </table>
     </div>
         <br>

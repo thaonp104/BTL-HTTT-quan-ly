@@ -4,17 +4,20 @@
         <div id="footer_wrapper">
           <?php
             use Illuminate\Support\Facades\DB;
-            $arr=DB::table('categories')->get();
+            use App\Brand;
+            use App\Category;
+            $arr=Category::all();
             foreach ($arr as $rows) {
+//                dd($rows);
            ?>
           <div id="thong_tin" class="bottom_box">
             <ul>
-              <li> <a class="tieu_de" href="{{URL::asset('customer/groupProducts/'.$rows->id)}}"><?php echo $rows->name ?></a> </li>
+              <li> <a class="tieu_de" href="{{URL::asset('customer/groupProducts/'.$rows['id'])}}"><?php echo $rows->name ?></a> </li>
               <?php
-                $check = DB::table('brands')->where('id', $rows->id)->get();
-                foreach ($check as $rows) {
+                $check = $rows->brands;
+                foreach ($check as $row) {
               ?>
-              <li> <a href="{{ URL::asset('customer/products/category/'.$rows->id) }}"><?php echo $rows->name ?></a> </li>
+              <li> <a href="{{ URL::asset('customer/products/category/'.$row['id'].'/'.$rows['id']) }}"><?php echo $row['name'] ?></a> </li>
             <?php } ?>
             </ul>
           </div>

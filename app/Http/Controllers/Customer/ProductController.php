@@ -47,12 +47,14 @@ class ProductController extends Controller
     public function showCategoryProducts(Request $request)
     {
         $id=isset($request["category"])?$request["category"]:"";
+        $ca = isset($request["group"])?$request["group"]:"";
         $record_perpage=4;
         $total= DB::table('products')->where('brandsid', $id)->count();
         $num_page=ceil($total/$record_perpage);
         $page=isset($request["p"])&&$request["p"]>0?($request["p"]-1):0;
         $from=$page*$record_perpage;
         $arr=DB::table('products')->where('brandsid',$id)
+            ->where('categoriesid', $ca)
             ->orderBy('id','desc')
             ->paginate(4);
         $ht = DB::table('brands')->where('id',$id)->first();

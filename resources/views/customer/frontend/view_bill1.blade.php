@@ -63,7 +63,7 @@
 
 
                 </div>
-            <div style="text-align: center;"><input style="text-align: center;padding: 10px;border-radius: 5px;" type="submit" name="" value="Thanh toán"></div>
+            <div style="text-align: center;"><input style="text-align: center;padding: 10px;border-radius: 5px;" type="submit" name="" value="Tiếp tục"></div>
             </form>
         </div>
 

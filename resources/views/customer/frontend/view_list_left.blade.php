@@ -19,11 +19,11 @@
                   ->where('categoriesid', $rows->id);
               $list_left = DB::table('brands')->whereIn('id', $brand_category)->get();
              ?>
-             <?php foreach ($list_left as $rows) {
+             <?php foreach ($list_left as $row) {
               ?>
               <li class="leve11 first">
-                  <a href="{{ URL::asset('customer/products/category/'.$rows->id) }}">
-                      <span><?php echo $rows->name ?></span>
+                  <a href="{{ URL::asset('customer/products/category/'.$row->id.'/'.$rows->id) }}">
+                      <span><?php echo $row->name ?></span>
                   </a>
                 <ul style="display:block;">
                 </ul>

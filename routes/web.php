@@ -54,7 +54,7 @@ Route::prefix('customer')->group(function (){
     Route::get('groupProducts/{id}', 'Customer\ProductController@showGroupProducts')
         ->name('customer.groupProducts');
     Route::get('search/{key}', 'Customer\ProductController@search')->name('customer.search');
-    Route::get('products/category/{category}', 'Customer\ProductController@showCategoryProducts')
+    Route::get('products/category/{category}/{group}', 'Customer\ProductController@showCategoryProducts')
         ->name('customer.productsCategory');
     Route::get('product/detail/{id}','Customer\ProductController@showDetail')->name('customer.detailProduct');
 

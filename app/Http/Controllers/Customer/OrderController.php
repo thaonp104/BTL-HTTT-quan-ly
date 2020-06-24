@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
+use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -28,10 +29,8 @@ class OrderController extends Controller
     public function create()
     {
         if(session()->has('c_customer')){
-            //Khách đã đăng nhập
             $tmp=session("c_customer");
             $arr = DB::table('accounts')->where('username', $tmp)->first();
-//            var_dump($arr);
             $check = DB::table('customers')->where('accountsid', $arr->id)->first();
             $data['arr'] = $arr;
             $data['check'] = $check;
@@ -39,9 +38,6 @@ class OrderController extends Controller
         }
         else{
             return redirect("customer/login/normal");
-            //khách vãng lai
-
-//            return view("customer/frontend/view_bill2");
         }
     }
 
@@ -76,10 +72,10 @@ class OrderController extends Controller
                         'quantity' => $number
                     ]
                 ]);
-                $p = DB::table('products')->where('id',$id)->first();
-                $quantity = $p->quantity - $number;
-                DB::table('products')->where('id', $id)
-                    ->update(['quantity' => $quantity]);
+//                $p = DB::table('products')->where('id',$id)->first();
+//                $quantity = $p->quantity - $number;
+//                DB::table('products')->where('id', $id)
+//                    ->update(['quantity' => $quantity]);
 
             }
             session(['cart' => array()]);

@@ -3,7 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="3be5c56f-0043-4e30-af25-ebf6e3ae1d87" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/employee/seniormanager/ManageReport.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seniormanager/ManageReport.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Customer/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Customer/CartController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Customer/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Customer/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/customer/frontend/view_bill1.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/frontend/view_bill1.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/customer/frontend/view_cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/frontend/view_cart.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/customer/frontend/view_order_detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/frontend/view_order_detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/customer/frontend/view_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/frontend/view_product.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/customer/layouts/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/layouts/footer.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -170,7 +177,7 @@
       <workItem from="1592271798124" duration="43024000" />
       <workItem from="1592874224821" duration="6365000" />
       <workItem from="1592922466269" duration="2059000" />
-      <workItem from="1592925473547" duration="6577000" />
+      <workItem from="1592925473547" duration="10401000" />
     </task>
     <servers />
   </component>

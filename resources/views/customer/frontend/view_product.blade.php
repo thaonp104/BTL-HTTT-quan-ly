@@ -38,6 +38,10 @@
 					</ul>
 
 				</div>
+                <div>
+                    <label for="">Số lượng:</label>
+                    <input type="text" value="{{ $arr->quantity }}" readonly style="width: 60px;border:1px solid #dddddd; padding:5px;border-radius: 5px;margin-top: 15px;">
+                </div>
 				<div style="margin-top: 15px;">
 					<a href="{{ URL::asset('customer/addCart/'.$arr->id) }}" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Mua Ngay</a>&nbsp;
 					<?php  if(session()->has('favorite.'.$arr->id)){?>
