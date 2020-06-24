@@ -75,6 +75,9 @@
                 </table>
             </form>
         </div>
+        <div class="form-group">
+            <a href="{{ URL::asset('/telesale/managebill/update/'.$bill['id']) }}"><button type="button" class="btn btn-primary">Update</button></a>
+        </div>
         <!-- end container-fluid -->
 
     </div>

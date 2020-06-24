@@ -191,9 +191,9 @@ Route::prefix('telesale')->middleware('checktelesale')->group(function (){
 
     Route::get('/managebill/detail/{id}', 'Employee\Telesale\BillController@show')->name('telesale.DetailBill');
 
-    Route::get('/managebill/update/{id}', function () {
-        return view('employee.telesale.updateBill');
-    })->name('telesale.updateBill');
+    Route::get('/managebill/update/{id}', 'Employee\Telesale\BillController@edit')->name('telesale.updateBill');
+
+    Route::post('/managebill/update', 'Employee\Telesale\BillController@update');
 });
 
 Auth::routes();

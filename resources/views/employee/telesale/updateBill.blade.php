@@ -20,45 +20,84 @@
         <!-- Start Content-->
         <div class="container-fluid">
 
-            <form>
+            <form action="/telesale/managebill/update" method="post">
+                @csrf
                 <div class="form-group">
                     <label for="id">ID</label>
-                    <input type="text" class="form-control" value="1" disabled>
+                    <input type="text" class="form-control" value="{{ $bill->id }}" name="id" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="productname">Customer's name</label>
+                    <input type="text" class="form-control" value="{{ $customer->fullname }}" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="date">Customer's Phone</label>
+                    <input type="text" class="form-control" value="{{ $customer->phone }}" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="branchname">Address</label>
+                    <input type="text" class="form-control" value="{{ $bill->address }}" disabled>
                 </div>
                 <div class="form-group">
                     <label for="date">Date</label>
-                    <input type="text" class="form-control" value="8/6/2020">
+                    <input type="text" class="form-control" value="{{ $bill->date }}" disabled>
                 </div>
                 <div class="form-group">
-                    <label for="status">Status</label>
-                    <select class="form-control">
-                        <option value="0">On going</option>
-                        <option value="1">Done</option>
-                    </select>
+                    <label for="date">Total</label>
+                    <input type="text" class="form-control" value="{{ $bill->total }}" disabled>
                 </div>
                 <div class="form-group">
-                    <label for="total">Total</label>
-                    <input type="text" class="form-control" value="20.000.000">
+                    <label for="total">Status</label>
+                    <input type="text" class="form-control"
+                           value="@if($bill->status == 0) Chờ xác nhận
+                        @elseif($bill->status == 1) Đang giao hàng
+                        @elseif($bill->status == 2) Đã giao hàng
+                        @elseif($bill->status == 3) Đã huỷ
+                        @endif
+                               " disabled>
                 </div>
                 <div class="form-group">
-                    <label for="address">Address</label>
-                    <input type="text" class="form-control" value="23 Wall Street">
+                    <label for="total">Change status</label>
+                    @if($bill->status == 0)
+                        <select name="status" class="form-control" required>
+                            <option value="1">Đang giao hàng</option>
+                            <option value="2">Đã giao hàng</option>
+                            <option value="3">Đã huỷ</option>
+                        </select>
+                    @elseif($bill->status == 1)
+                        <select name="status" class="form-control" required>
+                            <option value="2">Đã giao hàng</option>
+                        </select>
+                    @endif
                 </div>
                 <div class="form-group">
-                    <label for="accountid">Account ID</label>
-                    <input type="text" class="form-control" value="1" disabled>
+                    <label for="address">Employee</label>
+                    <input type="text" class="form-control" value="{{ $bill->employeesid }}" disabled>
                 </div>
-                <div class="form-group">
-                    <label for="customername">Customer Name</label>
-                    <input type="text" class="form-control" value="Customer Name" disabled>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <a href="/telesale/managebill/detail/1"><button type="button" class="btn btn-danger">Cancel</button></a>
-                </div>
+                <table class="table table-bordered dt-responsive nowrap">
+                    <tr>
+                        <th>Product</th>
+                        <th>quantity</th>
+                        <th>Price</th>
+                    </tr>
+                    @foreach($items as $item)
+                        <tr>
+                            <td>{{ $item->name }}</td>
+                            <td>{{ $item->quantity }}</td>
+                            <td>{{ $item->pricenew*$item->quantity }}</td>
+                        </tr>
+                    @endforeach
+                </table>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="{{ URL::asset('/telesale/managebill/detail/'.$bill['id']) }}"><button type="button" class="btn btn-danger">Cancel</button></a>
             </form>
         </div>
         <!-- end container-fluid -->
 
     </div>
+    @if(isset($_GET['alert']))
+        <script>
+            alert('Số lượng sản phẩm trong đơn quá số lượng trong kho!!!');
+        </script>
+    @endif
 @endsection

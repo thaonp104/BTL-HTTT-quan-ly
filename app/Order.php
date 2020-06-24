@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+    public $timestamps = false;
     public function bill()
     {
         return $this->hasOne('App\Bill', 'ordersid');
