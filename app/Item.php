@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
 {
+    public $timestamps= false;
     public function productBranch()
     {
         return $this->belongsTo('App\Product_Branch', 'product_branchid');

@@ -81,20 +81,32 @@ class BillController extends Controller
                     }
                 }
             }
+            if ($order->status == 0) {
+                foreach ($items as $item) {
+                    foreach ($products as $p) {
+                        if($p->id == $item->productsid) {
+                            $p->quantity = $p->quantity - $item->quantity;
+                            $p->save();
+                        }
+                    }
+                }
+            }
             $order->status = $request->status;
             $order->save();
             $b->employeesid = $em->id;
             $b->save();
-            foreach ($items as $item) {
-                foreach ($products as $p) {
-                    if($p->id == $item->productsid) {
-                        $p->quantity = $p->quantity - $item->quantity;
-                        $p->save();
+            return redirect('/telesale/managebill/detail/'.$id);
+        } else {
+            if($order->status == 1) {
+                foreach ($items as $item) {
+                    foreach ($products as $p) {
+                        if($p->id == $item->productsid) {
+                            $p->quantity = $p->quantity + $item->quantity;
+                            $p->save();
+                        }
                     }
                 }
             }
-            return redirect('/telesale/managebill/detail/'.$id);
-        } else {
             $b->employeesid = $em->id;
             $order->status = 3;
             $order->save();

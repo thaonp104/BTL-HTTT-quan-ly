@@ -1,4 +1,9 @@
 @extends('employee.layout.main')
+@section('head')
+    <script type="text/javascript" src="{{ URL::asset('js/jquery.min.js') }}"></script>
+
+    <script src="{{ URL::asset('assets\js\vendor.min.js') }}"></script>
+@endsection
 @section('menu')
     <ul class="metismenu" id="side-menu">
 

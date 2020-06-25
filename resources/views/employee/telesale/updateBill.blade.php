@@ -1,4 +1,9 @@
 @extends('employee.layout.main')
+@section('head')
+    <script type="text/javascript" src="{{ URL::asset('js/jquery.min.js') }}"></script>
+
+    <script src="{{ URL::asset('assets\js\vendor.min.js') }}"></script>
+@endsection
 @section('menu')
     <ul class="metismenu" id="side-menu">
 
@@ -67,6 +72,7 @@
                     @elseif($bill->status == 1)
                         <select name="status" class="form-control" required>
                             <option value="2">Đã giao hàng</option>
+                            <option value="3">Đã huỷ</option>
                         </select>
                     @endif
                 </div>

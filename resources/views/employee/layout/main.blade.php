@@ -22,6 +22,7 @@
     <link href="{{ URL::asset('assets\css\bootstrap.min.css') }}" rel="stylesheet" type="text/css" id="bootstrap-stylesheet">
     <link href="{{ URL::asset('assets\css\icons.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ URL::asset('assets\css\app.min.css') }}" rel="stylesheet" type="text/css" id="app-stylesheet">
+    @yield('head')
 
 </head>
 
@@ -114,16 +115,10 @@
 
 
 </div>
-<!-- END wrapper -->
 
-<!-- <script type="text/javascript" src="{{ URL::asset('js/jquery.min.js') }}"></script> -->
-<!-- Vendor js -->
-<script src="{{ URL::asset('assets\js\vendor.min.js') }}"></script>
-
-<!-- Required datatable js -->
 <script src="{{ URL::asset('assets\libs\datatables\jquery.dataTables.min.js') }}"></script>
 <script src="{{ URL::asset('assets\libs\datatables\dataTables.bootstrap4.min.js') }}"></script>
-<!-- Buttons examples -->
+
 <script src="{{ URL::asset('assets\libs\datatables\dataTables.buttons.min.js') }}"></script>
 <script src="{{ URL::asset('assets\libs\datatables\buttons.bootstrap4.min.js') }}"></script>
 <script src="{{ URL::asset('assets\libs\jszip\jszip.min.js') }}"></script>

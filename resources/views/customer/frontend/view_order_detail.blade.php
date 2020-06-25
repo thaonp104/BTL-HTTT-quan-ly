@@ -84,7 +84,7 @@
             </table>
     </div>
         <br>
-        @if ($tam->status != 3)
+        @if ($tam->status == 0)
             <a href="{{ URL::asset('customer/order/destroy/'.$tam->id) }}" class="btn btn-danger">Huỷ đơn hàng</a>
         @endif
 </div>

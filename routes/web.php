@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index');
-
+//Route::get('/', function () {
+//    return view('test');
+//});
 //Customer
 Route::prefix('customer')->group(function (){
     //index
@@ -86,23 +88,19 @@ Route::get('/employee/home', 'Homecontroller@index');
 Route::prefix('seller')->middleware('checkseller')->group(function (){
     Route::get('/manageproduct', 'Employee\Seller\ProductController@index')->name('seller.ManageProduct');
 
-    Route::get('/managebill', function () {
-        return view('employee.seller.ManageBill');
-    })->name('seller.ManageBill');
+    Route::get('/managebill', 'Employee\Seller\BillController@index')->name('seller.ManageBill');
 
     Route::get('/manageproduct/detail/{id}', 'Employee\Seller\ProductController@show')->name('seller.DetailProduct');
 
-    Route::get('/managebill/detail/{id}', function () {
-        return view('employee.seller.DetailBill');
-    })->name('seller.DetailBill');
+    Route::get('/managebill/detail/{id}', 'Employee\Seller\BillController@show')->name('seller.DetailBill');
 
-    Route::get('/managebill/addbill', function () {
-        return view('employee.seller.AddBill');
-    })->name('seller.AddBill');
+    Route::get('/managebill/addbill', 'Employee\Seller\BillController@create')->name('seller.AddBill');
 
-    Route::get('/managebill/updatebill/{id}', function () {
-        return view('employee.seller.updateBill');
-    })->name('seller.AddBill');
+    Route::get('/managebill/updatebill/{id}', 'Employee\Seller\BillController@edit')->name('seller.AddBill');
+
+    Route::post('/managebill/updatebill', 'Employee\Seller\BillController@update');
+
+    Route::post('/managebill/store', 'Employee\Seller\BillController@store');
 });
 
 Route::prefix('storemanager')->middleware('checkstoremanager')->group(function (){

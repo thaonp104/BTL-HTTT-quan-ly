@@ -22,7 +22,7 @@ class CreateEmployeesTable extends Migration
             $table->enum('role',['seller','storemanager','seniormanager','admin', 'telesale']);
             $table->integer('salary');
             $table->foreignId('branchesid')->nullable()->constrained('branches');
-            $table->foreignId('accountsid')->constrained('accounts');
+            $table->foreignId('accountsid')->nullable()->constrained('accounts');
         });
     }
 

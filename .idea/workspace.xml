@@ -2,15 +2,49 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3be5c56f-0043-4e30-af25-ebf6e3ae1d87" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/test.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Customer/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Customer/CartController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Customer/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Customer/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/customer/frontend/view_bill1.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/frontend/view_bill1.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/customer/frontend/view_cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/frontend/view_cart.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Customer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Employee/StoreManager/BillController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Employee/StoreManager/BillController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Employee/Telesale/BillController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Employee/Telesale/BillController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Item.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Item.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Product_Branch.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Product_Branch.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_07_095142_create_employees_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_07_095142_create_employees_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_07_095155_create_customers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_07_095155_create_customers_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/customer/frontend/view_order_detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/frontend/view_order_detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/customer/frontend/view_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/frontend/view_product.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/customer/layouts/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/layouts/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/admin/DetailAccount.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/admin/DetailAccount.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/admin/ManageAccount.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/admin/ManageAccount.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/admin/addAccount.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/admin/addAccount.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/admin/editAccount.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/admin/editAccount.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/layout/changePW.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/layout/changePW.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/layout/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/layout/main.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/seller/AddBill.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seller/AddBill.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/seller/DetailBill.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seller/DetailBill.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/seller/DetailProduct.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seller/DetailProduct.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/seller/ManageBill.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seller/ManageBill.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/seller/ManageProduct.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seller/ManageProduct.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/seller/updateBill.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seller/updateBill.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/seniormanager/AddProduct.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seniormanager/AddProduct.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/seniormanager/AddStore.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seniormanager/AddStore.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/seniormanager/DetailProduct.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seniormanager/DetailProduct.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/seniormanager/DetailStore.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seniormanager/DetailStore.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/seniormanager/ManageProduct.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seniormanager/ManageProduct.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/seniormanager/ManageReport.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seniormanager/ManageReport.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/seniormanager/ManageStore.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seniormanager/ManageStore.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/seniormanager/updateProduct.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seniormanager/updateProduct.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/seniormanager/updateStore.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seniormanager/updateStore.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/storemanager/DetailBill.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/storemanager/DetailBill.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/storemanager/DetailProduct.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/storemanager/DetailProduct.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/storemanager/DetailSeller.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/storemanager/DetailSeller.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/storemanager/ManageBill.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/storemanager/ManageBill.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/storemanager/ManageProduct.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/storemanager/ManageProduct.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/storemanager/ManageReportStore.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/storemanager/ManageReportStore.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/storemanager/ManageSeller.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/storemanager/ManageSeller.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/storemanager/addSeller.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/storemanager/addSeller.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/storemanager/updateSeller.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/storemanager/updateSeller.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/telesale/DetailBill.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/telesale/DetailBill.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/telesale/ManageBill.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/telesale/ManageBill.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/telesale/updateBill.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/telesale/updateBill.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -133,6 +167,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
@@ -177,7 +212,7 @@
       <workItem from="1592271798124" duration="43024000" />
       <workItem from="1592874224821" duration="6365000" />
       <workItem from="1592922466269" duration="2059000" />
-      <workItem from="1592925473547" duration="10401000" />
+      <workItem from="1592925473547" duration="31407000" />
     </task>
     <servers />
   </component>
@@ -189,25 +224,29 @@
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="458" y="189" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.822@0.23.1440.822" timestamp="1591805322838" />
-    <state x="458" y="197" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1592973230762">
+    <state x="458" y="197" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1593076072329">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state x="458" y="197" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.822@0.23.1440.822" timestamp="1592973230762" />
+    <state x="458" y="197" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.822@0.23.1440.822" timestamp="1593076072329" />
     <state x="363" y="98" key="#phpunit.xml" timestamp="1591710015115">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="363" y="98" key="#phpunit.xml/0.23.1440.822@0.23.1440.822" timestamp="1591710015115" />
-    <state x="385" y="169" width="670" height="676" key="search.everywhere.popup" timestamp="1592836930862">
+    <state width="600" height="424" key="javadoc.popup" timestamp="1593075040336">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state x="385" y="169" width="670" height="676" key="search.everywhere.popup/0.23.1440.822@0.23.1440.822" timestamp="1592836930862" />
+    <state width="600" height="424" key="javadoc.popup/0.23.1440.822@0.23.1440.822" timestamp="1593075040336" />
+    <state x="385" y="169" width="670" height="676" key="search.everywhere.popup" timestamp="1593013403522">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state x="385" y="169" width="670" height="676" key="search.everywhere.popup/0.23.1440.822@0.23.1440.822" timestamp="1593013403522" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/employee/storemanager/addSeller.blade.php</url>
-          <line>31</line>
+          <line>36</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

@@ -1,4 +1,9 @@
 @extends('employee.layout.main')
+@section('head')
+    <script type="text/javascript" src="{{ URL::asset('js/jquery.min.js') }}"></script>
+
+    <script src="{{ URL::asset('assets\js\vendor.min.js') }}"></script>
+@endsection
 @section('menu')
     <ul class="metismenu" id="side-menu">
 
@@ -33,24 +38,36 @@
                             <h4 class="m-t-0 header-title mb-4"><b>Bills</b></h4>
                             <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                 <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Date</th>
-                                        <th>Status</th>
-                                        <th>Total</th>
-                                        <th>Address</th>
-                                        <th>Detail</th>
-                                    </tr>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Customer's name</th>
+                                    <th>Date</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                    <th>Detail</th>
+                                </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($bills as $bill)
                                     <tr>
-                                        <td>1</td>
-                                        <td>8/6/2020</td>
-                                        <td>On going</td>
-                                        <td>$400,000</td>
-                                        <td>23 Wall Street</td>
-                                        <td style="width: 1%"><a href="/seller/managebill/detail/{id}" class="btn btn-primary">Detail</a></td>
+                                        <td>{{$bill->id}}</td>
+                                        <td>{{ $bill->fullname }}</td>
+                                        <td>{{ $bill->date }}</td>
+                                        <td> {{ $bill->total }}</td>
+                                        <td>
+                                            @if($bill->status == 0)
+                                                Chờ xác nhận
+                                            @elseif($bill->status == 1)
+                                                Đang giao hàng
+                                            @elseif($bill->status == 2)
+                                                Đã giao hàng
+                                            @elseif($bill->status == 3)
+                                                Đã huỷ
+                                            @endif
+                                        </td>
+                                        <td style="width: 1%"><a href="/seller/managebill/detail/{{$bill->id}}" class="btn btn-primary">Detail</a></td>
                                     </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                             <a href="/seller/managebill/addbill" class="btn btn-info">Add Bill</a>

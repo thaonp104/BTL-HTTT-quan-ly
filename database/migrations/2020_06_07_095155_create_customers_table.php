@@ -19,7 +19,7 @@ class CreateCustomersTable extends Migration
             $table->string('address');
             $table->string('phone');
             $table->date('birthday');
-            $table->foreignId('accountsid')->constrained('accounts');
+            $table->foreignId('accountsid')->nullable()->constrained('accounts');
         });
     }
 

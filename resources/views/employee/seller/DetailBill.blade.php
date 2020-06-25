@@ -1,4 +1,9 @@
 @extends('employee.layout.main')
+@section('head')
+    <script type="text/javascript" src="{{ URL::asset('js/jquery.min.js') }}"></script>
+
+    <script src="{{ URL::asset('assets\js\vendor.min.js') }}"></script>
+@endsection
 @section('menu')
     <ul class="metismenu" id="side-menu">
 
@@ -25,7 +30,6 @@
 
         <!-- Start Content-->
         <div class="container-fluid">
-
             <form>
                 <div class="form-group">
                     <label for="id">ID</label>
@@ -33,11 +37,11 @@
                 </div>
                 <div class="form-group">
                     <label for="productname">Customer's name</label>
-                    <input type="text" class="form-control" value="{{ $bill->fullname }}" disabled>
+                    <input type="text" class="form-control" value="{{ $customer->fullname }}" disabled>
                 </div>
                 <div class="form-group">
                     <label for="date">Customer's Phone</label>
-                    <input type="text" class="form-control" value="{{ $bill->phone }}" disabled>
+                    <input type="text" class="form-control" value="{{ $customer->phone }}" disabled>
                 </div>
                 <div class="form-group">
                     <label for="branchname">Address</label>
@@ -75,13 +79,24 @@
                         <tr>
                             <td>{{ $item->product_branchid }}</td>
                             <td>{{ $item->quantity }}</td>
-                            <td>{{ $item->pricenew*$item->quantity }}</td>
+                            @foreach($prB as $pr)
+                                @if($pr->id == $item->product_branchid)
+                                    @foreach($products as $p)
+                                        @if($p->id == $pr->productsid)
+                                            <td>{{ $p->pricenew*$item->quantity }}</td>
+                                        @endif
+                                    @endforeach
+                                @endif
+                            @endforeach
                         </tr>
                     @endforeach
                 </table>
             </form>
+
         </div>
         <!-- end container-fluid -->
-
+        <div class="form-group">
+            <a href="{{ URL::asset('/seller/managebill/updatebill/'.$bill['id']) }}"><button type="button" class="btn btn-primary">Update</button></a>
+        </div>
     </div>
 @endsection
