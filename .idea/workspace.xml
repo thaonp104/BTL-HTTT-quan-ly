@@ -2,20 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3be5c56f-0043-4e30-af25-ebf6e3ae1d87" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/employee/seniormanager/StockIn.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/employee/seniormanager/StockOut.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/employee/admin/AddEmployee.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/employee/admin/DetailCustomer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/employee/admin/DetailEmployee.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/employee/admin/EditCustomer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/employee/admin/EditEmployee.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/employee/admin/ManageCustomer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/employee/admin/ManageEmployee.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Branch.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Branch.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/employee/seller/AddBill.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seller/AddBill.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/employee/seniormanager/AddStore.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seniormanager/AddStore.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/employee/seniormanager/DetailStore.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seniormanager/DetailStore.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/employee/seniormanager/ManageProduct.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seniormanager/ManageProduct.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/employee/seniormanager/ManageStore.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seniormanager/ManageStore.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/employee/seniormanager/updateStore.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seniormanager/updateStore.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/employee/storemanager/DetailSeller.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/employee/storemanager/ManageSeller.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/employee/storemanager/addSeller.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/employee/storemanager/updateSeller.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Employee.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/admin/DetailAccount.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/admin/ManageAccount.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/admin/addAccount.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/admin/editAccount.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -183,7 +184,7 @@
       <workItem from="1592271798124" duration="43024000" />
       <workItem from="1592874224821" duration="6365000" />
       <workItem from="1592922466269" duration="2059000" />
-      <workItem from="1592925473547" duration="37817000" />
+      <workItem from="1592925473547" duration="40162000" />
     </task>
     <servers />
   </component>

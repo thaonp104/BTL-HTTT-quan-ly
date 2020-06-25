@@ -153,21 +153,25 @@ Route::prefix('seniormanager')->middleware('checkseniormanager')->group(function
 });
 
 Route::prefix('admin')->middleware('checkadmin')->group(function (){
-    Route::get('/manageaccount', function () {
-        return view('employee.admin.ManageAccount');
-    })->name('admin.ManageAccount');
+    Route::get('/managecustomer', 'Employee\Admin\CustomerController@index');
 
-    Route::get('/manageaccount/detail/{id}', function () {
-        return view('employee.admin.DetailAccount');
-    })->name('admin.DetailAccount');
+    Route::get('/managecustomer/detail/{id}', 'Employee\Admin\CustomerController@show');
 
-    Route::get('/manageaccount/create', function () {
-        return view('employee.admin.addAccount');
-    })->name('admin.createAccount');
+    Route::get('/managecustomer/edit/{id}', 'Employee\Admin\CustomerController@edit');
 
-    Route::get('/manageaccount/edit/{id}', function () {
-        return view('employee.admin.editAccount');
-    })->name('admin.editAccount');
+    Route::post('/managecustomer/update', 'Employee\Admin\CustomerController@update');
+
+    Route::get('/manageemployee', 'Employee\Admin\EmployeeController@index');
+
+    Route::get('/manageemployee/detail/{id}', 'Employee\Admin\EmployeeController@show');
+
+    Route::get('/manageemployee/edit/{id}', 'Employee\Admin\EmployeeController@edit');
+
+    Route::post('/manageemployee/update', 'Employee\Admin\EmployeeController@update');
+
+    Route::get('/manageemployee/create', 'Employee\Admin\EmployeeController@create');
+
+    Route::post('/manageemployee/store', 'Employee\Admin\EmployeeController@store');
 });
 
 Route::prefix('telesale')->middleware('checktelesale')->group(function (){

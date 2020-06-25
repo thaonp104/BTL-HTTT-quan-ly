@@ -33,7 +33,7 @@ class HomeController extends Controller
             return redirect('/logout');
         } else {
             if ($position->role == 'admin') {
-                return redirect('/admin/manageaccount');
+                return redirect('/admin/managecustomer');
             } else if ($position->role == 'seller') {
                 return redirect('/seller/manageproduct');
             } else if ($position->role == 'storemanager') {

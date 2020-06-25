@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Employee extends Model
 {
+    public $timestamps = false;
     public function account()
     {
         return $this->hasOne('App\User', 'accountsid');

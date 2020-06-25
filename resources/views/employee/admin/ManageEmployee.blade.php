@@ -10,9 +10,16 @@
         <li class="menu-title">Admin</li>
 
         <li>
-            <a href="/admin/manageaccount" class="waves-effect">
+            <a href="/admin/managecustomer" class="waves-effect">
                 <i class="ion-md-speedometer"></i>
-                <span>  Manage Account  </span>
+                <span>  Manage Customer  </span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/admin/manageemployee" class="waves-effect">
+                <i class="ion-md-speedometer"></i>
+                <span>  Manage Employee  </span>
             </a>
         </li>
 
@@ -33,23 +40,23 @@
                             <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
 
                                 <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Username</th>
-                                        <th>Password</th>
-                                        <th>status</th>
-                                        <th>Detail</th>
-                                    </tr>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Username</th>
+                                    <th>Password</th>
+                                    <th>status</th>
+                                    <th>Detail</th>
+                                </tr>
                                 </thead>
 
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>username</td>
-                                        <td>password</td>
-                                        <td>Online</td>
-                                        <td style="width: 1%"><a href="/admin/manageaccount/detail/{id}" class="btn btn-primary">Detail</a></td>
-                                    </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>username</td>
+                                    <td>password</td>
+                                    <td>Online</td>
+                                    <td style="width: 1%"><a href="/admin/manageaccount/detail/{id}" class="btn btn-primary">Detail</a></td>
+                                </tr>
                                 </tbody>
                             </table>
                             <a href="{{ URL::asset('/admin/manageaccount/create') }}" class="btn btn-info">Add Account</a>
