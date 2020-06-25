@@ -7,7 +7,7 @@
 @section('menu')
     <ul class="metismenu" id="side-menu">
 
-        <li class="menu-title">Customer</li>
+        <li class="menu-title">Admin</li>
 
         <li>
             <a href="/admin/managecustomer" class="waves-effect">

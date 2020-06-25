@@ -10,9 +10,16 @@
         <li class="menu-title">Admin</li>
 
         <li>
-            <a href="/admin/manageaccount" class="waves-effect">
+            <a href="/admin/managecustomer" class="waves-effect">
                 <i class="ion-md-speedometer"></i>
-                <span>  Manage Account  </span>
+                <span>  Manage Customer  </span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/admin/manageemployee" class="waves-effect">
+                <i class="ion-md-speedometer"></i>
+                <span>  Manage Employee  </span>
             </a>
         </li>
 

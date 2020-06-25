@@ -35,31 +35,39 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body table-responsive">
-                            <h4 class="m-t-0 header-title mb-4"><b>Accounts</b></h4>
+                            <h4 class="m-t-0 header-title mb-4"><b>Employees</b></h4>
 
                             <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
 
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Username</th>
-                                    <th>Password</th>
-                                    <th>status</th>
+                                    <th>Fullname</th>
+                                    <th>Role</th>
+                                    <th>Branch</th>
                                     <th>Detail</th>
                                 </tr>
                                 </thead>
 
                                 <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>username</td>
-                                    <td>password</td>
-                                    <td>Online</td>
-                                    <td style="width: 1%"><a href="/admin/manageaccount/detail/{id}" class="btn btn-primary">Detail</a></td>
-                                </tr>
+                                    @foreach($employees as $e)
+                                        <tr>
+                                            <td>{{ $e->id }}</td>
+                                            <td>{{ $e->fullname }}</td>
+                                            <td>{{ $e->role }}</td>
+                                            <td>
+                                                @foreach($branches as $b)
+                                                    @if($b->id == $e->branchesid)
+                                                        {{ $b->name }}
+                                                    @endif
+                                                @endforeach
+                                            </td>
+                                            <td style="width: 1%"><a href="/admin/manageemployee/detail/{{ $e->id }}" class="btn btn-primary">Detail</a></td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
-                            <a href="{{ URL::asset('/admin/manageaccount/create') }}" class="btn btn-info">Add Account</a>
+                            <a href="{{ URL::asset('/admin/manageemployee/create') }}" class="btn btn-info">Add Employee</a>
                         </div>
                     </div>
                 </div>

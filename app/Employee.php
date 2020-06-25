@@ -9,7 +9,7 @@ class Employee extends Model
     public $timestamps = false;
     public function account()
     {
-        return $this->hasOne('App\User', 'accountsid');
+        return $this->belongsTo('App\User', 'accountsid');
     }
 
     public function bills()
