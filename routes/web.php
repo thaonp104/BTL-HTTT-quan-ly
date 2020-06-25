@@ -113,22 +113,6 @@ Route::prefix('storemanager')->middleware('checkstoremanager')->group(function (
 
     Route::get('/managebill/detail/{id}', 'Employee\StoreManager\BillController@show')->name('storemanager.DetailBill');
 
-    Route::get('/manageseller', function () {
-        return view('employee.storemanager.ManageSeller');
-    })->name('storemanager.ManageSeller');
-
-    Route::get('/manageseller/addseller', function () {
-        return view('employee.storemanager.addSeller');
-    })->name('storemanager.addSeller');
-
-    Route::get('/manageseller/detail/{id}', function () {
-        return view('employee.storemanager.DetailSeller');
-    })->name('storemanager.DetailSeller');
-
-    Route::get('/manageseller/update/{id}', function () {
-        return view('employee.storemanager.updateSeller');
-    })->name('storemanager.updateSeller');
-
     Route::get('/managereportstore', 'Employee\StoreManager\ReportController@index')->name('storemanager.ManageReportStore');
 });
 
@@ -145,26 +129,27 @@ Route::prefix('seniormanager')->middleware('checkseniormanager')->group(function
 
     Route::post('/managerproduct/storeproduct', 'Employee\SeniorManager\ProductController@store');
 
-    Route::get('/managestore', function () {
-        return view('employee.seniormanager.ManageStore');
-    })->name('seniormanager.ManageStore');
+    Route::get('/managestore', 'Employee\SeniorManager\StoreController@index')->name('seniormanager.ManageStore');
 
-    Route::get('/managestore/detail/{id}', function () {
-        return view('employee.seniormanager.DetailStore');
-    })->name('seniormanager.DetailStore');
+    Route::get('/managestore/detail/{id}', 'Employee\SeniorManager\StoreController@show')->name('seniormanager.DetailStore');
 
-    Route::get('/managestore/update/{id}', function () {
-        return view('employee.seniormanager.updateStore');
-    })->name('seniormanager.updateStore');
+    Route::get('/managestore/update/{id}', 'Employee\SeniorManager\StoreController@edit')->name('seniormanager.updateStore');
 
-    Route::get('/managestore/addstore', function () {
-        return view('employee.seniormanager.AddStore');
-    })->name('seniormanager.AddStore');
+    Route::post('/managestore/update', 'Employee\SeniorManager\StoreController@update');
 
-    Route::get('/managereport', function () {
-        return view('employee.seniormanager.ManageReport');
-    })->name('seniormanager.ManageReport');
+    Route::get('/managestore/addstore', 'Employee\SeniorManager\StoreController@create')->name('seniormanager.AddStore');
+
+    Route::post('/managestore/addstore', 'Employee\SeniorManager\StoreController@store');
+
     Route::get('/managereport', 'Employee\SeniorManager\ReportController@index');
+
+    Route::get('/managestock', 'Employee\SeniorManager\StockController@showin');
+
+    Route::get('/managestockout', 'Employee\SeniorManager\StockController@showout');
+
+    Route::post('/managestockout', 'Employee\SeniorManager\StockController@out');
+
+    Route::post('/managestockin', 'Employee\SeniorManager\StockController@in');
 });
 
 Route::prefix('admin')->middleware('checkadmin')->group(function (){

@@ -2,7 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3be5c56f-0043-4e30-af25-ebf6e3ae1d87" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/employee/seniormanager/AddProduct.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seniormanager/AddProduct.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/employee/seniormanager/StockIn.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/employee/seniormanager/StockOut.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Branch.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Branch.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/seller/AddBill.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seller/AddBill.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/seniormanager/AddStore.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seniormanager/AddStore.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/seniormanager/DetailStore.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seniormanager/DetailStore.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/seniormanager/ManageProduct.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seniormanager/ManageProduct.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/seniormanager/ManageStore.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seniormanager/ManageStore.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/seniormanager/updateStore.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seniormanager/updateStore.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/storemanager/DetailSeller.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/storemanager/ManageSeller.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/storemanager/addSeller.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/storemanager/updateSeller.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +183,7 @@
       <workItem from="1592271798124" duration="43024000" />
       <workItem from="1592874224821" duration="6365000" />
       <workItem from="1592922466269" duration="2059000" />
-      <workItem from="1592925473547" duration="31651000" />
+      <workItem from="1592925473547" duration="37817000" />
     </task>
     <servers />
   </component>
@@ -181,10 +195,10 @@
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="458" y="189" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.822@0.23.1440.822" timestamp="1591805322838" />
-    <state x="458" y="197" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1593076072329">
+    <state x="458" y="197" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1593080132617">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state x="458" y="197" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.822@0.23.1440.822" timestamp="1593076072329" />
+    <state x="458" y="197" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.822@0.23.1440.822" timestamp="1593080132617" />
     <state x="363" y="98" key="#phpunit.xml" timestamp="1591710015115">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
@@ -197,16 +211,5 @@
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="385" y="169" width="670" height="676" key="search.everywhere.popup/0.23.1440.822@0.23.1440.822" timestamp="1593013403522" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/resources/views/employee/storemanager/addSeller.blade.php</url>
-          <line>36</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

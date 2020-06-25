@@ -30,6 +30,13 @@
             </a>
         </li>
 
+        <li>
+            <a href="/seniormanager/managestock" class="waves-effect">
+                <i class="ion-md-speedometer"></i>
+                <span>  Manage Stock  </span>
+            </a>
+        </li>
+
     </ul>
 @endsection
 @section('content')
@@ -38,16 +45,22 @@
         <!-- Start Content-->
         <div class="container-fluid">
 
-            <form>
-            <div class="form-group">
+            <form action="/seniormanager/managestore/addstore" method="post">
+                @csrf
+                <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control" value="name">
+                    <input type="text" class="form-control" placeholder="name" name="name">
                 </div>
                 <div class="form-group">
                     <label for="address">Address</label>
-                    <input type="text" class="form-control" value="23 Wall Street">
+                    <input type="text" class="form-control" placeholder="address" name="address">
+                </div>
+                <div class="form-group">
+                    <label for="address">Phone</label>
+                    <input type="text" class="form-control" placeholder="phone" name="phone">
                 </div>
                 <button type="submit" class="btn btn-primary">Add</button>
+                <a href="{{ URL::asset('seniormanager/managestore') }}"><button type="button" class="btn btn-danger">Cancel</button></a>
             </form>
         </div>
         <!-- end container-fluid -->

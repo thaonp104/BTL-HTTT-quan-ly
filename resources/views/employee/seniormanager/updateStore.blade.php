@@ -38,22 +38,27 @@
         <!-- Start Content-->
         <div class="container-fluid">
 
-            <form>
+            <form action="/seniormanager/managestore/update" method="post">
+                @csrf
                 <div class="form-group">
                     <label for="id">ID</label>
-                    <input type="text" class="form-control" value="1" readonly>
+                    <input type="text" class="form-control" value="{{ $branch->id }}" readonly name="id">
                 </div>
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control" value="name">
+                    <input type="text" class="form-control" value="{{ $branch->name }}" name="name" required>
                 </div>
                 <div class="form-group">
                     <label for="address">Address</label>
-                    <input type="text" class="form-control" value="23 Wall Street">
+                    <input type="text" class="form-control" value="{{ $branch->address }}" name="address" required">
+                </div>
+                <div class="form-group">
+                    <label for="address">Phone</label>
+                    <input type="text" class="form-control" value="{{ $branch->phone }}" name="phone" required>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <a href="{{ URL::asset('seniormanager/managestore/detail/1') }}"><button type="button" class="btn btn-danger">Cancel</button></a>
+                    <a href="{{ URL::asset('seniormanager/managestore/detail/'.$branch->id) }}"><button type="button" class="btn btn-danger">Cancel</button></a>
                 </div>
             </form>
         </div>

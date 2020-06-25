@@ -41,18 +41,22 @@
             <form>
                 <div class="form-group">
                     <label for="id">ID</label>
-                    <input type="text" class="form-control" value="1" readonly>
+                    <input type="text" class="form-control" value="{{ $branch->id }}" readonly>
                 </div>
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control" value="name" readonly>
+                    <input type="text" class="form-control" value="{{ $branch->name }}" readonly>
                 </div>
                 <div class="form-group">
                     <label for="address">Address</label>
-                    <input type="text" class="form-control" value="23 Wall Street" readonly>
+                    <input type="text" class="form-control" value="{{ $branch->address }}" readonly>
                 </div>
                 <div class="form-group">
-                    <a href="{{ URL::asset('seniormanager/managestore/update/1') }}"><button type="button" class="btn btn-primary">Update</button></a>
+                    <label for="address">Phone</label>
+                    <input type="text" class="form-control" value="{{ $branch->phone }}" readonly>
+                </div>
+                <div class="form-group">
+                    <a href="{{ URL::asset('seniormanager/managestore/update/'.$branch->id) }}"><button type="button" class="btn btn-primary">Update</button></a>
                 </div>
             </form>
         </div>

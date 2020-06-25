@@ -30,6 +30,12 @@
             </a>
         </li>
 
+        <li>
+            <a href="/seniormanager/managestock" class="waves-effect">
+                <i class="ion-md-speedometer"></i>
+                <span>  Manage Stock  </span>
+            </a>
+        </li>
     </ul>
 @endsection
 @section('content')

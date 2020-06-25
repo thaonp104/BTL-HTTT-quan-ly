@@ -42,7 +42,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body table-responsive">
-                            <h4 class="m-t-0 header-title mb-4"><b>Stores</b></h4>
+                            <h4 class="m-t-0 header-title mb-4"><b>Branches</b></h4>
 
                             <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
 
@@ -51,17 +51,21 @@
                                         <th>ID</th>
                                         <th>Name</th>
                                         <th>Address</th>
-                                        <th>Detail</th>
+                                        <th>Phone</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>23 Wall Street</td>
-                                        <td style="width: 1%"><a href="/seniormanager/managestore/detail/{id}" class="btn btn-primary">Detail</a></td>
-                                    </tr>
+                                    @foreach($stores as $s)
+                                        <tr>
+                                            <td>{{ $s->id }}</td>
+                                            <td>{{ $s->name }}</td>
+                                            <td>{{ $s->address }}</td>
+                                            <td>{{ $s->phone }}</td>
+                                            <td style="width: 1%"><a href="/seniormanager/managestore/detail/{{ $s->id }}" class="btn btn-primary">Detail</a></td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                             <a href="/seniormanager/managestore/addstore" class="btn btn-info">Add Store</a>
