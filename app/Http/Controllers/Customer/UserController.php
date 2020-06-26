@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use App\Customer as C;
+use App\User;
 
 class UserController extends Controller
 {
@@ -25,12 +27,14 @@ class UserController extends Controller
             $customer = DB::table('customers')->where('accountsid', $check->id)->first();
             if ($customer!=null) {
                 if(Hash::check($password,$check->password)){
+                    if($check->status == 0) return redirect('customer/login/fail');
                     session(['c_customer' => $username]);
                     return redirect('customer/myAccount');
                 }
                 else{
                     return redirect('customer/login/fail');
                 }
+
             } else {
                 return redirect('customer/login/fail');
             }
@@ -53,8 +57,21 @@ class UserController extends Controller
         $name = $request['name'];
         $address = $request['address'];
         $birthday = $request['birthday'];
-        $phone = $request['phone'];
+        $phone = preg_replace("/[\s]/", "", $request['phone']);
         $username = $request['username'];
+        if(!preg_match('/^[0-9]+$/',$phone)) {
+            return redirect("customer/register/phone");
+        } else {
+            if(strlen($phone) <9 || strlen($phone)>11) {
+                return redirect("customer/register/phone");
+            }
+        }
+        $cus = C::all();
+        foreach( $cus as $c) {
+            if($c->phone == $phone) {
+                return redirect("customer/register/phone");
+            }
+        }
         if($password==$passwordnew){
             $check = DB::table('accounts')->where('username', $username)->count();
             if($check==0){

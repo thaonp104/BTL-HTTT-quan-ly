@@ -104,6 +104,10 @@
         <script>
             alert('Số điện thoại đã được sử dụng, yêu cầu nhập lại thông tin khách hàng!!!');
         </script>
+    @elseif(isset($error) && $error == 'phone')
+        <script>
+            alert('Số điện thoại không đúng format (chỉ chứa các kí tự số, độ dài từ 9-11)!!!');
+        </script>
     @endif
     <script>
         var count = 1;

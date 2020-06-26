@@ -41,7 +41,7 @@
                 </div>
                 <div class="form-group">
                     <label for="date">Customer's Phone</label>
-                    <input type="text" class="form-control" value="{{ $customer->phone }}" disabled>
+                    <input type="text" class="form-control" id="'phone" value="{{ $customer->phone }}" disabled>
                 </div>
                 <div class="form-group">
                     <label for="branchname">Address</label>
@@ -99,4 +99,17 @@
             <a href="{{ URL::asset('/seller/managebill/updatebill/'.$bill['id']) }}"><button type="button" class="btn btn-primary">Update</button></a>
         </div>
     </div>
+{{--    <script>--}}
+{{--        $( document ).ready(function() {--}}
+{{--            function phoneFormat() {--}}
+{{--                phone = phone.replace(/[^0-9]/g, '');--}}
+{{--                phone = phone.replace(/(\d{4})(\d{3})(\d{4})/, "($1) $2-$3");--}}
+{{--                return phone;--}}
+{{--            }--}}
+{{--            var phone = $('#phone').val();--}}
+{{--            phone = phoneFormat(phone);--}}
+{{--            console.log(phone);--}}
+{{--            $('#phone').val(phone);--}}
+{{--        });--}}
+{{--    </script>--}}
 @endsection

@@ -58,7 +58,7 @@
 
             <div class="form-group">
                 <label for="quantity">Quantity</label>
-                <input type="text" class="form-control" placeholder="quantity" name="quantity" required>
+                <input type="number" class="form-control" placeholder="quantity" min="1" name="quantity" required>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

@@ -6,6 +6,7 @@ use App\Bill;
 use App\Customer;
 use App\Employee;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AddBillRequest;
 use App\Item;
 use App\Order;
 use App\Product;
@@ -128,12 +129,11 @@ class BillController extends Controller
         //lay request
         $fullname = $request['fullname'];
         $address = $request['address'];
-        $phone = $request['phone'];
+        $phone = preg_replace("/[\s]/", "", $request['phone'] );
         $birthday = $request['birthday'];
         $product = $request['product'];
         $quantity = $request['quantity'];
         $date = $request['date'];
-
         //check quantity trong kho
         $employee = User::find(auth()->user()->id)->employee;
         $branch = $employee->branchesid;
@@ -142,15 +142,15 @@ class BillController extends Controller
         $stt = 0;
         $total = 0;
         $pros = Product::all();
+        $data['products'] = $products;
+        $data['fullname'] = $fullname;
+        $data['address'] = $address;
+        $data['phone'] = $phone;
+        $data['birthday'] = $birthday;
+        $data['date'] = $date;
         foreach ($request['product'] as $p) {
             foreach ($products as $pr) {
                 if($pr['id'] == $p && $pr['quantity'] < $quantity[$stt]) {
-                    $data['products'] = $products;
-                    $data['fullname'] = $fullname;
-                    $data['address'] = $address;
-                    $data['phone'] = $phone;
-                    $data['birthday'] = $birthday;
-                    $data['date'] = $date;
                     $data['error'] = "quantity";
                     return view('employee.seller.AddBill',$data);
                 }
@@ -164,15 +164,18 @@ class BillController extends Controller
             }
             $stt++;
         }
+        if(!preg_match('/^[0-9]+$/',$phone)) {
+            $data['error'] = 'phone';
+            return view('employee.seller.AddBill',$data);
+        } else {
+           if(strlen($phone) <9 || strlen($phone)>11) {
+               $data['error'] = 'phone';
+               return view('employee.seller.AddBill',$data);
+           }
+        }
         //insert customer
         $customer = Customer::where('phone', $phone)->first();
         if($customer!=null && $customer['fullname'] != $fullname) {
-            $data['products'] = $products;
-            $data['fullname'] = $fullname;
-            $data['address'] = $address;
-            $data['phone'] = $phone;
-            $data['birthday'] = $birthday;
-            $data['date'] = $date;
             $data['error'] = "customer";
             return view('employee.seller.AddBill',$data);
         } else if ($customer==null) {

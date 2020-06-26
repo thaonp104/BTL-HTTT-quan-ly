@@ -89,6 +89,10 @@
             </form>
         </div>
         <!-- end container-fluid -->
-
+        @if(isset($error) && $error == 'phone')
+            <script>
+                alert('Số điện thoại không đúng format (chỉ chứa các kí tự số, độ dài từ 9-11)!!!');
+            </script>
+        @endif
     </div>
 @endsection

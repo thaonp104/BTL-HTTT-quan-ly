@@ -78,14 +78,14 @@ Route::prefix('customer')->group(function (){
 
 
 //Employee
-Route::get('/employee/changepw', 'Employee\AccountController@editPW')->middleware(['auth','checkemployee']);
+Route::get('/employee/changepw', 'Employee\AccountController@editPW')->middleware(['auth','checkemployee', 'checkwork']);
 
-Route::post('/employee/updatePW', 'Employee\AccountController@updatePW')->middleware(['auth','checkemployee']);
+Route::post('/employee/updatePW', 'Employee\AccountController@updatePW')->middleware(['auth','checkemployee', 'checkwork']);
 
 Route::get('/logout', 'Auth\Logincontroller@logout');
-Route::get('/employee/home', 'Homecontroller@index');
+Route::get('/employee/home', 'Homecontroller@index')->middleware(['checkwork']);
 
-Route::prefix('seller')->middleware('checkseller')->group(function (){
+Route::prefix('seller')->middleware('checkseller', 'checkwork')->group(function (){
     Route::get('/manageproduct', 'Employee\Seller\ProductController@index')->name('seller.ManageProduct');
 
     Route::get('/managebill', 'Employee\Seller\BillController@index')->name('seller.ManageBill');
@@ -103,7 +103,7 @@ Route::prefix('seller')->middleware('checkseller')->group(function (){
     Route::post('/managebill/store', 'Employee\Seller\BillController@store');
 });
 
-Route::prefix('storemanager')->middleware('checkstoremanager')->group(function (){
+Route::prefix('storemanager')->middleware('checkstoremanager', 'checkwork')->group(function (){
 
     Route::get('/manageproduct', 'Employee\StoreManager\ProductController@index')->name('storemanager.ManageProduct');
 
@@ -116,7 +116,7 @@ Route::prefix('storemanager')->middleware('checkstoremanager')->group(function (
     Route::get('/managereportstore', 'Employee\StoreManager\ReportController@index')->name('storemanager.ManageReportStore');
 });
 
-Route::prefix('seniormanager')->middleware('checkseniormanager')->group(function (){
+Route::prefix('seniormanager')->middleware('checkseniormanager', 'checkwork')->group(function (){
     Route::get('/manageproduct', 'Employee\SeniorManager\ProductController@index')->name('seniormanager.ManageProduct');
 
     Route::get('/manageproduct/detail/{id}', 'Employee\SeniorManager\ProductController@show')->name('seniormanager.DetailProduct');
@@ -152,7 +152,7 @@ Route::prefix('seniormanager')->middleware('checkseniormanager')->group(function
     Route::post('/managestockin', 'Employee\SeniorManager\StockController@in');
 });
 
-Route::prefix('admin')->middleware('checkadmin')->group(function (){
+Route::prefix('admin')->middleware('checkadmin', 'checkwork')->group(function (){
     Route::get('/managecustomer', 'Employee\Admin\CustomerController@index');
 
     Route::get('/managecustomer/detail/{id}', 'Employee\Admin\CustomerController@show');

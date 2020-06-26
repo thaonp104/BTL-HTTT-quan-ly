@@ -8,6 +8,7 @@ use App\Http\Middleware\CheckSeller;
 use App\Http\Middleware\CheckSeniorManager;
 use App\Http\Middleware\CheckStoreManager;
 use App\Http\Middleware\CheckTelesale;
+use App\Http\Middleware\CheckWork;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -75,5 +76,6 @@ class Kernel extends HttpKernel
         'checkseniormanager' => CheckSeniorManager::class,
         'checktelesale' => CheckTelesale::class,
         'checkemployee' => CheckEmployee::class,
+        'checkwork' => CheckWork::class,
     ];
 }

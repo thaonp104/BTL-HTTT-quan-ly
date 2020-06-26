@@ -59,7 +59,7 @@
             @foreach($branches as $b)
                 <div class="form-group">
                     <label for="quantity">Branch {{ $b->name }}</label>
-                    <input type="text" class="form-control" placeholder="quantity" name="quantity[{{ $b->id }}]" required>
+                    <input type="number" class="form-control" placeholder="quantity" min="1" name="quantity[{{ $b->id }}]" required>
                 </div>
             @endforeach
             <button type="submit" class="btn btn-primary">Add</button>

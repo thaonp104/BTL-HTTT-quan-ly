@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Employee\Admin;
 
 use App\Account;
 use App\Branch;
+use App\Customer;
 use App\Employee;
 use App\Http\Controllers\Controller;
 use App\User;
@@ -52,12 +53,34 @@ class EmployeeController extends Controller
         $id = $request['id'];
         $fullname = $request['fullname'];
         $address = $request['address'];
-        $phone = $request['phone'];
+        $phone = preg_replace("/[\s]/", "", $request['phone']);;
         $birthday = $request['birthday'];
         $role = $request['role'];
         $salary = $request['salary'];
         $branch = $request['branch'];
         $status = $request['status'];
+        $data['fullname'] = $fullname;
+        $data['address'] = $address;
+        $data['phone'] = $phone;
+        $data['birthday'] = $birthday;
+        $data['role'] = $role;
+        $data['salary'] = $salary;
+        $data['branch'] = $branch;
+        $data['branches'] = Branch::all();
+        if(!preg_match('/^[0-9]+$/',$phone)) {
+            $data['error'] = 'phone';
+            return view('employee.admin.AddEmployee',$data);
+        } else {
+            if(strlen($phone) <9 || strlen($phone)>11) {
+                $data['error'] = 'phone';
+                return view('employee.admin.AddEmployee',$data);
+            }
+        }
+        $emp = Employee::where('phone', $phone)->first();
+        if($emp!=null) {
+            $data['error'] = "trungphone";
+            return view('employee.admin.AddEmployee',$data);
+        }
         $employee = Employee::find($id);
 //        dd($employee);
         $employee->fullname = $fullname;
@@ -105,6 +128,16 @@ class EmployeeController extends Controller
         $data['branch'] = $branch;
         $data['branches'] = Branch::all();
         $data['username'] = $username;
+        if(!preg_match('/^[0-9\s]+$/',$phone)) {
+            $data['error'] = 'phone';
+            return view('employee.admin.AddEmployee',$data);
+        } else {
+            $phone = preg_replace("/[^0-9]/", "", $phone );
+            if(strlen($phone) <9 || strlen($phone)>11) {
+                $data['error'] = 'phone';
+                return view('employee.admin.AddEmployee',$data);
+            }
+        }
         if ($password != $repassword) {
             $data['error'] = 'password';
             return view('employee.admin.AddEmployee', $data);

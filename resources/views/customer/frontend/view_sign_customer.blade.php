@@ -12,6 +12,9 @@
         else if (al == 'password') {
             alert('Mật khẩu không khớp. Thử lại');
         }
+        else if (al =='phone') {
+            alert('Số điện thoại đã tồn tại hoặc nhập không đúng form. Thử lại');
+        }
     </script>
 <div style="margin-left: 140px" id="cphMain_ctl00_ContentPane" class="center center_right">
     <div class="defaultContent contact-content">
