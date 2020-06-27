@@ -3,19 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3be5c56f-0043-4e30-af25-ebf6e3ae1d87" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Customer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Customer/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Customer/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Employee/Admin/EmployeeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Employee/Admin/EmployeeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Employee/Seller/BillController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Employee/Seller/BillController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/customer/frontend/view_sign_customer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/frontend/view_sign_customer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/employee/admin/AddEmployee.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/admin/AddEmployee.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/employee/admin/EditEmployee.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/admin/EditEmployee.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/employee/seller/AddBill.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seller/AddBill.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/employee/seller/DetailBill.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seller/DetailBill.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/employee/seniormanager/StockIn.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seniormanager/StockIn.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/employee/seniormanager/StockOut.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/seniormanager/StockOut.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +169,8 @@
       <workItem from="1592271798124" duration="43024000" />
       <workItem from="1592874224821" duration="6365000" />
       <workItem from="1592922466269" duration="2059000" />
-      <workItem from="1592925473547" duration="55824000" />
+      <workItem from="1592925473547" duration="56937000" />
+      <workItem from="1593270987307" duration="1281000" />
     </task>
     <servers />
   </component>
