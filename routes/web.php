@@ -14,9 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index');
-//Route::get('/', function () {
-//    return view('test');
-//});
 //Customer
 Route::prefix('customer')->group(function (){
     //index
@@ -30,12 +27,12 @@ Route::prefix('customer')->group(function (){
     Route::get('register/{alert}', 'Customer\UserController@register')->name('customer.register');
     Route::get('logout', 'Customer\UserController@logout')->name('customer.logout');
     Route::post('register','Customer\UserController@create')->name('customer.createAccount');
-    Route::get('myAccount', 'Customer\UserController@myAccount')->name('customer.myAccount');
-    Route::get('inforAccount', 'Customer\UserController@inforAccount')->name('customer.inforAccount');
-    Route::get('editAccount', 'Customer\UserController@editAccount')->name('customer.editAccount');
-    Route::post('updateAccount', 'Customer\UserController@updateAccount')->name('customer.updateAccount');
-    Route::get('editPassword/{alert}', 'Customer\UserController@editPassword')->name('customer.editPassword');
-    Route::post('updatePassword', 'Customer\UserController@updatePassword')->name('customer.updatePassword');
+    Route::get('myAccount', 'Customer\UserController@myAccount')->name('customer.myAccount')->middleware(['auth']);
+    Route::get('inforAccount', 'Customer\UserController@inforAccount')->name('customer.inforAccount')->middleware(['auth']);
+    Route::get('editAccount', 'Customer\UserController@editAccount')->name('customer.editAccount')->middleware(['auth']);
+    Route::post('updateAccount', 'Customer\UserController@updateAccount')->name('customer.updateAccount')->middleware(['auth']);
+    Route::get('editPassword/{alert}', 'Customer\UserController@editPassword')->name('customer.editPassword')->middleware(['auth']);
+    Route::post('updatePassword', 'Customer\UserController@updatePassword')->name('customer.updatePassword')->middleware(['auth']);
 
     //cart
     Route::get('cart', 'Customer\CartController@showCart')->name('customer.cart');
@@ -61,8 +58,8 @@ Route::prefix('customer')->group(function (){
     Route::get('product/detail/{id}','Customer\ProductController@showDetail')->name('customer.detailProduct');
 
     //Orders
-    Route::get('myOrders','Customer\OrderController@myOrders')->name('customer.myOrders');
-    Route::prefix('order')->group(function () {
+    Route::get('myOrders','Customer\OrderController@myOrders')->name('customer.myOrders')->middleware(['auth']);
+    Route::prefix('order')->middleware(['auth'])->group(function () {
         Route::get('create','Customer\OrderController@create')->name('customer.order.create');
         Route::post('store','Customer\OrderController@store')->name('customer.order.store');
         Route::get('show/{id}','Customer\OrderController@show')->name('customer.order.show');
@@ -74,6 +71,14 @@ Route::prefix('customer')->group(function (){
         ->name('customer.addFavorite');
     Route::get('deleteFavorite/{id}', 'Customer\ProductController@deleteFavoriteProduct')
         ->name('customer.deleteFavorite');
+
+    //payment
+    Route::get('cancelpayment', 'Customer\PaymentController@cancel');
+    Route::get('vnpay', 'Customer\PaymentController@index');
+    Route::post('vnpay', 'Customer\PaymentController@vnpay');
+    Route::post('vnpayqr/success', 'Customer\PaymentController@store');
+    Route::post('atm/accuracy', 'Customer\PaymentController@accuracy');
+    Route::post('atm/success', 'Customer\PaymentController@store');
 });
 
 

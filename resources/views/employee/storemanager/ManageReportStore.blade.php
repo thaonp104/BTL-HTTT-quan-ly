@@ -10,13 +10,6 @@
         <li class="menu-title">Store Manager</li>
 
         <li>
-            <a href="/storemanager/manageseller" class="waves-effect">
-                <i class="ion-md-speedometer"></i>
-                <span>  Manage Seller  </span>
-            </a>
-        </li>
-
-        <li>
             <a href="/storemanager/manageproduct" class="waves-effect">
                 <i class="ion-md-speedometer"></i>
                 <span>  Manage Product  </span>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Customer;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
@@ -50,9 +51,12 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'username' => ['required', 'string', 'max:255', 'unique:accounts'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'fullname' => ['required', 'string', 'max:255'],
+            'address'  => ['required', 'string', 'max:255'],
+            'birthday' => ['required', 'date', 'after:start_date'],
+            'phone'    => ['required', 'numeric', 'min:11'],
         ]);
     }
 
@@ -64,10 +68,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+        $user = User::create([
+            'username' => $data['username'],
             'password' => Hash::make($data['password']),
+            'status'   => 1,
         ]);
+
+        Customer::create([
+            'fullname' => $data['fullname'],
+            'address' => $data['address'],
+            'birthday' => $data['birthday'],
+            'phone' => $data['phone'],
+            'accountsid' => $user->id,
+        ]);
+        return $user;
     }
 }

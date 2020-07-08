@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Customer;
 use App\Employee;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Http\Request;
@@ -29,8 +30,12 @@ class HomeController extends Controller
         $id = Auth::user()->id;
         $position = Employee::where('accountsid', $id)->first();
         if ($position==null) {
-//            return redirect()->guest(route('logout'))->with('post');
-            return redirect('/logout');
+            $customer = Customer::where('accountsid', $id)->first();
+            if ($customer == null) {
+                return redirect('/logout');
+            } else {
+                return redirect('/customer');
+            }
         } else {
             if ($position->role == 'admin') {
                 return redirect('/admin/managecustomer');

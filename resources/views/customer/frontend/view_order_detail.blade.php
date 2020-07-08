@@ -18,15 +18,23 @@
         </div>
         <div class="row">
             <div class="col-md-4">Họ và tên</div>
-            <div class="col-md-8"><?php echo $check->fullname ?></div>
+            <div class="col-md-8"><?php echo $tam->fullname ?></div>
         </div>
         <div class="row">
             <div class="col-md-4">Số điện thoại</div>
-            <div class="col-md-8"><?php echo $check->phone ?></div>
+            <div class="col-md-8"><?php echo $tam->phone ?></div>
         </div>
         <div class="row">
             <div class="col-md-4">Địa chỉ</div>
-            <div class="col-md-8"><?php echo $check->address ?></div>
+            <div class="col-md-8"><?php echo $tam->address ?></div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">Phương thức thanh toán:</div>
+            <div class="col-md-8"><?php echo $tam->method ?>
+                @if ($tam->method == 'ATM')
+                    - {{ $tam->atm_type }}
+                @endif
+            </div>
         </div>
         <div class="row">
             <div class="col-md-4">Tổng tiền phải trả</div>

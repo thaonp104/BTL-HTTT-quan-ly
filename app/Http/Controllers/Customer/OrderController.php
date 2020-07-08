@@ -3,60 +3,56 @@
 namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\createOrder;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
     public function myOrders()
     {
-        if(session()->has('c_customer')){
-            $name=session("c_customer");
-            $arr = DB::table('accounts')->where('username', $name)->first();
+            $arr = DB::table('accounts')->where('username', Auth::user()->username)->first();
             $inf = DB::table('customers')->where('accountsid', $arr->id)->first();
             $ord = DB::table('orders')->where('customersid', $inf->id)->get();
             $data['arr'] = $arr;
             $data['inf'] = $inf;
             $data['ord'] = $ord;
             return view('customer.frontend.view_my_order', $data);
-        }
-        else{
-            return redirect("customer/login/normal");
-        }
     }
 
     public function create()
     {
-        if(session()->has('c_customer')){
-            $tmp=session("c_customer");
-            $arr = DB::table('accounts')->where('username', $tmp)->first();
+            $arr = DB::table('accounts')->where('username', Auth::user()->username)->first();
             $check = DB::table('customers')->where('accountsid', $arr->id)->first();
             $data['arr'] = $arr;
             $data['check'] = $check;
             return view("customer/frontend/view_bill1", $data);
-        }
-        else{
-            return redirect("customer/login/normal");
-        }
     }
 
-    public function store(Request $request)
+    public function store(createOrder $request)
     {
-        if(session()->has('c_customer')){
-            //Khách đã đăng nhập
-            date_default_timezone_set("Asia/Ho_Chi_Minh");
-            $name=session("c_customer");
-            $c_date=date('Y-m-d');
-            $tong=session("total");
-            $arr = DB::table('accounts')->where('username',$name)->first();
-            $inf = DB::table('customers')->where('accountsid', $arr->id)->first();
+        date_default_timezone_set("Asia/Ho_Chi_Minh");
+        $c_date=date('Y-m-d');
+        $tong=session("total");
+        $fullname = $request['fullname'];
+        $address = $request['address'];
+        $phone = $request['phone'];
+        $arr = DB::table('accounts')->where('username',Auth::user()->username)->first();
+        $inf = DB::table('customers')->where('accountsid', $arr->id)->first();
+        if($request['method'] == 'COD') {
             DB::table('orders')->insert([
                 [
                     'total' => $tong,
                     'date' => $c_date,
                     'customersid' => $inf->id,
-                    'address' => $inf->address,
+                    'address' => $address,
+                    'fullname' => $fullname,
+                    'phone' => $phone,
+                    'method' => 'COD',
+                    'atm_type' => null,
+                    'atmsid' => null,
                     'status' => 0
                 ]
             ]);
@@ -72,18 +68,25 @@ class OrderController extends Controller
                         'quantity' => $number
                     ]
                 ]);
-//                $p = DB::table('products')->where('id',$id)->first();
-//                $quantity = $p->quantity - $number;
-//                DB::table('products')->where('id', $id)
-//                    ->update(['quantity' => $quantity]);
 
             }
             session(['cart' => array()]);
             session(["total" => 0]);
             return redirect('customer/order/show/'.$kq->id);
-        }
-        else{
-            return redirect("customer/login/normal");
+        } else {
+            session(['order' => array(
+                'total' => $tong,
+                'date' => $c_date,
+                'customersid' => $inf->id,
+                'address' => $address,
+                'fullname' => $fullname,
+                'phone' => $phone,
+                'method' => 'vnpay',
+                'atm_type' => null,
+                'atmsid' => null,
+                'status' => 0
+            )]);
+            return redirect('/customer/vnpay');
         }
 
     }
@@ -91,7 +94,7 @@ class OrderController extends Controller
     public function destroy(Request $request)
     {
         $id = $request['id'];
-        $order = DB::table('orders')->where('id', $id)->update([
+        DB::table('orders')->where('id', $id)->update([
             'status' => 3
         ]);
         return redirect('customer/order/show/'.$id);

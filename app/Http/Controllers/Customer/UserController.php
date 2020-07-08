@@ -9,41 +9,10 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Customer as C;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function login(Request $request)
-    {
-        $data['alert'] = $request['alert'];
-        return view('customer.frontend.view_customer_login', $data);
-    }
-
-    public function loginCustomer(Request $request)
-    {
-        $username=$request["username"];
-        $password=$request["password"];
-        $check = DB::table('accounts')->where('username', $username)->first();
-        if(isset($check->username)){
-            $customer = DB::table('customers')->where('accountsid', $check->id)->first();
-            if ($customer!=null) {
-                if(Hash::check($password,$check->password)){
-                    if($check->status == 0) return redirect('customer/login/fail');
-                    session(['c_customer' => $username]);
-                    return redirect('customer/myAccount');
-                }
-                else{
-                    return redirect('customer/login/fail');
-                }
-
-            } else {
-                return redirect('customer/login/fail');
-            }
-
-        }
-        else{
-            return redirect('customer/login/fail');
-        }
-    }
     public function register(Request $request)
     {
         $data['alert'] = $request['alert'];
@@ -106,50 +75,33 @@ class UserController extends Controller
 
     public  function myAccount(Request $request)
     {
-        if($request->session()->has('c_customer')){
             return view("customer/frontend/view_my_account");
-        }
-        else{
-            return redirect("customer/login/normal");
-        }
     }
 
     public function inforAccount()
     {
-        if(session()->has('c_customer')){
-            $tam=session("c_customer");
-            $arr = DB::table('accounts')->where('username', $tam)->first();
+            $tam= Auth::user();
+            $arr = DB::table('accounts')->where('username', $tam->username)->first();
             $inf = DB::table('customers')->where('accountsid',$arr->id)->first();
             $data['arr'] = $arr;
             $data['inf'] = $inf;
             return view('customer.frontend.view_info_account', $data);
-        }
-        else{
-            return redirect("customer/login/normal");
-        }
-
     }
 
     public function editAccount()
     {
-        if(session()->has('c_customer')){
-            $tam=session("c_customer");
-            $inf = DB::table('accounts')->where('username', $tam)->first();
+            $tam=Auth::user();
+            $inf = DB::table('accounts')->where('username', $tam->username)->first();
             $arr = DB::table('customers')->where('accountsid', $inf->id)->first();
             $data['inf'] = $inf;
             $data['arr'] = $arr;
             return view("customer.frontend.view_edit_account", $data);
-        }
-        else{
-            return redirect("customer/login/normal");
-        }
     }
 
     public function updateAccount(Request $request)
     {
-        if($request->session()->has('c_customer')){
-            $tam=session("c_customer");
-            $inf = DB::table('accounts')->where('username', $tam)->first();
+            $tam=Auth::user();
+            $inf = DB::table('accounts')->where('username', $tam->username)->first();
             $arr = DB::table('customers')->where('accountsid', $inf->id)->first();
             $c_name=$request["c_name"];
             $c_birthday=$request["c_birthday"];
@@ -164,29 +116,19 @@ class UserController extends Controller
                     'phone' => $c_phone
                 ]);
             return redirect('customer/inforAccount');
-        }
-        else{
-            return redirect("customer/login/normal");
-        }
     }
 
     public function editPassword(Request $request)
     {
-        if(session()->has('c_customer')){
             $al = $request['alert'];
             $data['al'] = $al;
             return view("customer.frontend.view_edit_password", $data);
-        }
-        else{
-            return redirect("customer/login/normal");
-        }
     }
 
     public function updatePassword(Request $request)
     {
-        if($request->session()->has('c_customer')){
-            $tam=session("c_customer");
-            $inf = DB::table('accounts')->where('username', $tam)->first();
+            $tam=Auth::user();
+            $inf = DB::table('accounts')->where('username', $tam->username)->first();
             $pw = $request['pw'];
             $newpw = $request['newpw'];
             $renewpw = $request['renewpw'];
@@ -205,9 +147,5 @@ class UserController extends Controller
                  }
              }
             return redirect('customer/inforAccount');
-        }
-        else{
-            return redirect("customer/login/normal");
-        }
     }
 }

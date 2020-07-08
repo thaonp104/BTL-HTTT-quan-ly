@@ -25,4 +25,14 @@ class Order extends Model
     {
         return $this->hasMany('App\Item', 'ordersid');
     }
+
+    public function atm()
+    {
+        return $this->belongsTo('App\Atm', 'atmsid');
+    }
+
+    public function cashInternational()
+    {
+        return $this->belongsTo('App\Cash_international', 'cash_internationalsid');
+    }
 }

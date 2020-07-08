@@ -8,6 +8,7 @@ use function GuzzleHttp\Psr7\str;
 class Customer extends Model
 {
     public $timestamps = false;
+    protected $guarded =[];
     public function account()
     {
         return $this->belongsTo('App\User', 'accountsid');

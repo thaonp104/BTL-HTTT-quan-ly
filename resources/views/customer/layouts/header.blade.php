@@ -11,15 +11,15 @@
           echo $total;
          ?>)</span></a> </li>
 
-        <?php if(session()->has('c_customer')){
+        <?php if(\Illuminate\Support\Facades\Auth::check()){
            ?>
         <li class="First topMenu_Account"> <a href="{{ URL::asset('customer/myAccount') }}"><span>Tài khoản của tôi </span>-<span style="color: red"><?php echo session("c_customer") ?></span>
           </a> </li>
         <li class="topMenu_Order"> <a href="{{ URL::asset(route('customer.myOrders')) }}"><span>Đơn hàng của bạn</span></a></li>
-        <li class="topMenu_Register"> <a href="{{ URL::asset(route('customer.logout')) }}"><span>Thoát</span></a> </li>
+        <li class="topMenu_Register"> <a href="{{ route('logout') }}"><span>Thoát</span></a> </li>
           <?php }else{ ?>
-          <li class="topMenu_Login"> <a href="{{ URL::asset('customer/login/normal') }}"><span>Đăng nhập</span></a> </li>
-        <li class="topMenu_Register"> <a href="{{ URL::asset('customer/register/normal') }}"><span>Đăng ký</span></a> </li>
+          <li class="topMenu_Login"> <a href="{{ route('login') }}"><span>Đăng nhập</span></a> </li>
+        <li class="topMenu_Register"> <a href="{{ route('register') }}"><span>Đăng ký</span></a> </li>
       <?php } ?>
 
 

@@ -2,7 +2,50 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3be5c56f-0043-4e30-af25-ebf6e3ae1d87" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/images/payment/ic_ask.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/payment/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libraries/bootbox.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libraries/bootstrap-datetimepicker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libraries/bootstrap-datetimepicker.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libraries/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libraries/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libraries/bootstrapValidator.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libraries/jquery.cardvalidate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libraries/jquery.countdown.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libraries/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libraries/jquery.signalR-2.4.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libraries/moment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libraries/thequocte/Styles.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libraries/velocity.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libraries/velocity.ui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libraries/vnpayqr/Styles.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/customer/frontend/payment.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/customer/frontend/payment_accuracy.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/customer/frontend/payment_tknh.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/customer/frontend/payment_vnpayqr.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Customer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Customer/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Customer/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Customer/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_07_095227_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_07_095227_create_orders_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/OrderSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/OrderSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/customer/frontend/view_bill1.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/frontend/view_bill1.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/customer/frontend/view_bill2.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/customer/frontend/view_order_detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/frontend/view_order_detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/customer/layouts/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/layouts/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/storemanager/DetailBill.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/storemanager/DetailBill.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/storemanager/DetailProduct.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/storemanager/DetailProduct.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/storemanager/ManageBill.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/storemanager/ManageBill.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/storemanager/ManageProduct.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/storemanager/ManageProduct.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/storemanager/ManageReportStore.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/storemanager/ManageReportStore.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,10 +171,16 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/libraries/thequocte" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/libraries/thequocte" />
+      <recent name="$PROJECT_DIR$/public/images/payment" />
+      <recent name="$PROJECT_DIR$/public/libraries" />
+      <recent name="$PROJECT_DIR$/public/libraries/vnpayqr" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/employee" />
       <recent name="$PROJECT_DIR$/resources/views/processer " />
@@ -171,6 +220,10 @@
       <workItem from="1592922466269" duration="2059000" />
       <workItem from="1592925473547" duration="56937000" />
       <workItem from="1593270987307" duration="1281000" />
+      <workItem from="1593277650593" duration="772000" />
+      <workItem from="1593479164978" duration="29000" />
+      <workItem from="1593968362695" duration="5000000" />
+      <workItem from="1594043567869" duration="29996000" />
     </task>
     <servers />
   </component>
@@ -182,10 +235,10 @@
       <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="458" y="189" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.822@0.23.1440.822" timestamp="1591805322838" />
-    <state x="458" y="197" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1593161866118">
+    <state x="458" y="197" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1594181039690">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
-    <state x="458" y="197" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.822@0.23.1440.822" timestamp="1593161866118" />
+    <state x="458" y="197" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.822@0.23.1440.822" timestamp="1594181039690" />
     <state x="363" y="98" key="#phpunit.xml" timestamp="1591710015115">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
