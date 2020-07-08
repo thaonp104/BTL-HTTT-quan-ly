@@ -122,7 +122,7 @@
     {
         var kt = confirm("Bạn muốn huỷ giao dịch?");
         if (kt == true) {
-            window.location="http://127.0.0.1:8000/customer/cancelpayment";
+            window.location="http://103.130.218.26/customer/cancelpayment";
         }
     }
 </script>
