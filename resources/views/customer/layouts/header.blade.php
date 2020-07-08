@@ -16,7 +16,15 @@
         <li class="First topMenu_Account"> <a href="{{ URL::asset('customer/myAccount') }}"><span>Tài khoản của tôi </span>-<span style="color: red"><?php echo session("c_customer") ?></span>
           </a> </li>
         <li class="topMenu_Order"> <a href="{{ URL::asset(route('customer.myOrders')) }}"><span>Đơn hàng của bạn</span></a></li>
-        <li class="topMenu_Register"> <a href="{{ route('logout') }}"><span>Thoát</span></a> </li>
+          <form action="{{ route('logout') }}" method="post">
+              @csrf
+              <li class="topMenu_Register"> <input style="    border: none;
+    background-color: black;
+    color: #fff;
+    position: absolute;
+    right: 32px;
+    font-size: 11px;" type="submit" value="Thoát"></li>
+          </form>
           <?php }else{ ?>
           <li class="topMenu_Login"> <a href="{{ route('login') }}"><span>Đăng nhập</span></a> </li>
         <li class="topMenu_Register"> <a href="{{ route('register') }}"><span>Đăng ký</span></a> </li>

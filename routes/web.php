@@ -87,7 +87,7 @@ Route::get('/employee/changepw', 'Employee\AccountController@editPW')->middlewar
 
 Route::post('/employee/updatePW', 'Employee\AccountController@updatePW')->middleware(['auth','checkemployee', 'checkwork']);
 
-Route::get('/logout', 'Auth\Logincontroller@logout');
+//Route::get('/logout', 'Auth\Logincontroller@logout');
 Route::get('/employee/home', 'Homecontroller@index')->middleware(['checkwork']);
 
 Route::prefix('seller')->middleware('checkseller', 'checkwork')->group(function (){
